@@ -1,0 +1,85 @@
+#
+# ~/.bash_aliases
+#
+
+alias ls='ls --color=auto --group-directories-first'
+alias lsn="ls --color=no"
+
+#PROGRAMS
+#alias e="evince $1 2> /dev/null &"
+alias e="evince $1 2> /dev/null "
+alias fire="firefox 2> /dev/null &"
+alias gp="gnuplot"
+alias via="vim ~/.bash_aliases"
+alias vif="vim ~/.bash_functions"
+alias vis="vim ~/.ssh/config"
+
+
+###===System===###
+alias pingu="ping -c 2 archlinux.at"
+#reactivate pointing stick after sleep/hibernation
+alias mouse="sudo modprobe -r psmouse && sudo modprobe psmouse"
+
+#NAVIATION
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -iv"
+alias l="ls -l"
+alias duh="du -hd 1  | sort -h"
+alias ll="ls -l"
+alias lless="ll | less"
+alias lash="ls -lash"
+	#current work dir:
+	alias cur="cd $cur"
+
+#BACKUP
+
+#DOCUMENTS
+alias d.="dolphin . &> /dev/null &"
+alias v.="vlc . &> /dev/null &"
+alias v="vlc"
+
+alias ohrwurm="vim ~/Music/Noten/ohrwurm.txt"
+
+#PROGRAMS
+
+alias gp="gnuplot"
+alias g++="g++ -std=c++11"
+alias li="libreoffice"
+alias py="python"
+alias ytdl="youtube-dl -x --audio-format \"mp3\" "
+
+#special RROG
+alias fet="figlet"
+alias fett="banner"
+alias hamsar="py3 ~/Code/Python/Hamsar/Hamsar2.2/hams.py"
+alias hams="py3 ~/Code/Python/Hamsar/Hamsar2.2/hams.py"
+alias hams="cd ~/Code/Python/Hamsar/Hamsar2.2/"
+#alias light="sudo tee /sys/class/backlight/intel_backlight/brightness <<<"
+#alias light="xbacklight -set"
+#alias minlight="sudo tee /sys/class/backlight/intel_backlight/brightness <<< 1"
+#alias minlight="/sys/class/backlight/intel_backlight/brightness <<< 1"
+#alias minlight="xbacklight -set 0.1"
+alias sus="source /home/pur/.bashrc"
+
+#test
+alias mic-test="arecord -vv -f dat /dev/null"
+
+#temporary
+alias x="startx && reset"
+alias bigfont="setfont sun12x22"
+
+#often used
+alias de="setxkbmap de"
+alias us="setxkbmap us"
+alias date="date +'%a %d %b %Y %H:%m:%S %Z'"
+alias since="date && ps -eo pid,tty,start,cmd | grep -i $1"
+
+
+# git clome https://aur.archlinux.org/yay.git
+#cd yay
+# makepkg -si
+
