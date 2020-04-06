@@ -54,10 +54,6 @@ alias fett="banner"
 alias hamsar="py3 ~/Code/Python/Hamsar/Hamsar2.2/hams.py"
 alias hams="py3 ~/Code/Python/Hamsar/Hamsar2.2/hams.py"
 alias hams="cd ~/Code/Python/Hamsar/Hamsar2.2/"
-#alias light="sudo tee /sys/class/backlight/intel_backlight/brightness <<<"
-#alias light="xbacklight -set"
-#alias minlight="/sys/class/backlight/intel_backlight/brightness <<< 1"
-#alias minlight="xbacklight -set 0.1"
 
 #test
 alias mic-test="arecord -vv -f dat /dev/null"

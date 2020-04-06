@@ -3,21 +3,16 @@
 ########## LOGBUCH ###
 LOGBUCH=~/Documents/Computer/log.cs
 # letzten command ins logbuch eintragen 	$ log 
-# vorletzten command ins logbuch   		$ log 1
+# vorletzten command ins logbuch   			$ nlog 1
 function log() {
-#	echo $(whoami) $(date +%F/%R) $(history | tail -n 2 | head -n 1) >> $LOGBUCH
 	echo $(whoami)@$(date +%F/%R)$(history | tail -n 2 | head -n 1 | sed 's/ .[0-9]\+ /$/') >> $LOGBUCH
 }
 function nlog() {
 	echo $(whoami) $(date +%F/%R) $(history | tail -n "$(($1+2))" | head -n 1) >> $LOGBUCH
 }
-
-CHEATSHEAT=~/Documents/Computer/cheat_sheat.txt
-function logcs() {
-	echo $(whoami) $(date +%F/%R) $(history | tail -n 2 | head -n 1) >> $CHEATSHEAT
-}
 alias vlog="vim $LOGBUCH"
 alias clog="cat $LOGBUCH"
+
 
 ########### check if a package is INSTALLED
 Check () {
