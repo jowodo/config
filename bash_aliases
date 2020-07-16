@@ -12,7 +12,7 @@ alias gp="gnuplot"
 alias via="vim ~/.bash_aliases"
 alias vif="vim ~/.bash_functions"
 alias vis="vim ~/.ssh/config"
-alias sus="source /home/pur/.bashrc && cd /home/pur/Documents/Computer/Config_files.git && git commit && git push && cd -"
+alias sus="source /home/pur/.bashrc "
 
 
 ###===System===###
@@ -68,4 +68,5 @@ alias us="setxkbmap us"
 alias date="date +'%a %d %b %Y %H:%m:%S %Z'"
 alias since="date && ps -eo pid,tty,start,cmd | grep -i $1"
 alias wifi="sudo systemctl restart netctl-auto@wlp2s0.service"
-
+alias getconf="cd /home/pur/Documents/Computer/Config_files.git && git pull "
+alias gitconf="cd /home/pur/Documents/Computer/Config_files.git && git add * && git commit && git push && cd - "
