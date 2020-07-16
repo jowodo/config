@@ -45,6 +45,7 @@ if has('gui_running')
   map! <S-Insert> <MiddleMouse>
 endif
 
+""""""""""""""""""""""""""
 " personal modifications
 set tabstop=4
 set shiftwidth=4
@@ -54,5 +55,5 @@ filetype plugin indent on
 syntax on
 set linebreak
 set number
-"set relativenumber
+set relativenumber
 "set spell
