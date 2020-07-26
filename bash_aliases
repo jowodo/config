@@ -60,6 +60,8 @@ alias mic-test="arecord -vv -f dat /dev/null"
 
 #temporary
 alias x="startx && reset"
+alias i3="startx /usr/bin/i3"
+alias kde="startx /usr/bin/startplasma-x11"
 alias bigfont="setfont sun12x22"
 
 #often used
