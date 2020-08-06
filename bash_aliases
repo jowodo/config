@@ -75,3 +75,6 @@ alias gitconf="cd /home/pur/Documents/Computer/Config_files.git && git add * && 
 alias bt="sudo systemctl start bluetooth && bluetoothctl"
 alias btoff="sudo systemctl stop bluetooth"
 alias td="termdown"
+
+alias smount="sudo systemd-mount --owner=$USER"
+alias sumount="sudo systemd-mount -u"
