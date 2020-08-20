@@ -48,5 +48,5 @@ function alarm { sleep "$1" && tell &> /dev/null &}
 #function light { echo $1 > /sys/class/backlight/intel_backlight/brightness ; }
 #function minlight { echo 1 > /sys/class/backlight/intel_backlight/brightness ; }
 function light { xbacklight = $1 ; }
-function minlight { xbacklight = 1; }
+function minlight { xbacklight = 0.1; }
 function mkcd { mkdir $1; cd $1; }
