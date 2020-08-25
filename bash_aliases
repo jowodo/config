@@ -12,6 +12,7 @@ alias gp="gnuplot"
 alias via="vim ~/.bash_aliases"
 alias vif="vim ~/.bash_functions"
 alias vis="vim ~/.ssh/config"
+alias vir="vim ~/.bashrc"
 alias sus="source /home/pur/.bashrc "
 
 
@@ -78,3 +79,5 @@ alias td="termdown"
 
 alias smount="sudo systemd-mount --owner=$USER"
 alias sumount="sudo systemd-mount -u"
+alias hibernate="sudo systemctl hibernate"
+alias suspend="sudo systemctl suspend"
