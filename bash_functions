@@ -37,8 +37,8 @@ function icd() {
 	#cd $( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 )
 	#cd "$( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 | sed -e 's/ /\\ /')"
 	#cd "$( find . -not -path '*/\.*' -type d -iwholename *$1* | head - -n 1 | sed -e 's/ /\\ /')"
-		# no hidden directories			#only dirs				# sort by lenght of path							# only take shortes	#work with spaces
-	cd "$( find . -not -path '*/\.*' -type d -iwholename "*$1*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
+		# no hidden directories			#only dirs	# remove trailing /	# sort by lenght of path					# only take shortes	#work with spaces
+	cd "$( find . -not -path '*/\.*' -type d -iwholename "*${1%/}*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
 	pwd
 	fi
 }
