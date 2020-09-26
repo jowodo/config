@@ -22,4 +22,4 @@ if [ -f ~/.bash_functions ] ; then
 	source ~/.bash_functions ; fi
 
 LANG=en_US.UTF-8
-HISTSIEZE=-1
+HISTSIZE=-1

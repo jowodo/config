@@ -82,3 +82,9 @@ alias sumount="sudo systemd-mount -u"
 alias hibernate="sudo systemctl hibernate"
 alias suspend="sudo systemctl suspend"
 alias todo="vim ~/.todo"
+alias learn="sleep 25m && vlc & "
+
+#VPN
+alias vpn="f5fpc -s -t vpn.univie.ac.at -u a1301163"
+alias vpni="f5fpc -i"
+alias vpno="f5fpc -o"
