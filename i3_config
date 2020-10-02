@@ -233,5 +233,5 @@ new_float normal
 set $meta Mod4
 bindsym $meta+l exec "i3lock -i /home/pur/Pictures/Wallpaper/WP_SU/wp_su_swamp_01.jpg"
 bindsym $meta+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym $meta+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym $meta+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym $meta+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym $meta+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
