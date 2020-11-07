@@ -13,6 +13,7 @@ alias via="vim ~/.bash_aliases"
 alias vif="vim ~/.bash_functions"
 alias vis="vim ~/.ssh/config"
 alias vir="vim ~/.bashrc"
+alias vil="vim ~/.bash_local"
 alias sus="source /home/pur/.bashrc "
 
 
@@ -83,6 +84,7 @@ alias sumount="sudo systemd-mount -u"
 alias hibernate="sudo systemctl hibernate"
 alias suspend="sudo systemctl suspend"
 alias todo="vim ~/.todo"
+alias book="vim ~/.book"
 alias learn="sleep 25m && vlc & "
 
 #VPN
