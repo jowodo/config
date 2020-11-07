@@ -1,0 +1,71 @@
+#!/bin/bash
+function iii(){
+	# todo
+	# make a history and search history first 
+	# store it in ~/.icd
+
+	# verbose: add && pwd 
+	# help: usage 
+	# second argument
+	# argument parser
+	args=$@
+#	args=()
+	helptext="print help text and exit" 
+	cla=0 # command line arguments
+	i=0
+	for arg in $@
+	do
+		if [[ ${arg:0:1} == "-" ]]
+		then
+			cla=$(($cla+1))
+			unset argss[i]
+			case ${arg:1:1} in 
+				"v")
+					echo "verb"
+					verbose=1 ;;
+				"h")
+					echo $helptext && exit ;;
+			esac
+#		else
+#			echo "arg"
+#			args+=$arg
+		fi
+		i=$((i+1))
+	done
+	echo $args
+	echo 'arg0' ${args[0]}
+	echo 'arg1' ${args[1]}
+
+#	echo $argss
+	################################# 0 ARGUMENTS
+	# if no argument go home
+#	echo $(($# - $cla))
+	if [ $(($#-$cla)) -eq 0 ]
+	#if [[ "x$1" = "x" ]]
+	then 
+#		echo "hi no arg"
+		cd ~ # && pwd
+	################################# 1 ARGUMENTS
+	elif [[ $(($#-$cla)) -eq 1 ]]
+	then
+		# no hidden directories			#only dirs	# remove trailing /	# sort by lenght of path					# only take shortes	#work with spaces
+		cd "$( find ~ -not -path '*/\.*' -type d -iwholename "*${args[0]%/}*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
+		if [[ $verbose ]]; then pwd ; fi
+	################################# 2 ARGUMENTS
+	elif [[ $(($#-$cla)) -eq 2 ]]
+	then
+		echo "2"
+		cd "$( find "${args[0]}" -not -path '*/\.*' -type d -iwholename "*${args[1]%/}*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
+		if [[ $verbose ]]; then pwd ; fi
+	fi
+}
+
+	# OLD versions
+	# find "in_time" or "in time" with icd in time
+	#cd $( find -iname $1 | head - -n 1 )
+	#cd $( find . | grep -ie $1 | head - -n 1 )
+		#cd $( find . -type d | grep -m 1 -ie $1 )
+		#cd $( find . -type d -iname $1 | head - -n 1 )
+		#cd $( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 )
+		#cd "$( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 | sed -e 's/ /\\ /')"
+		#cd "$( find . -not -path '*/\.*' -type d -iwholename *$1* | head - -n 1 | sed -e 's/ /\\ /')"
