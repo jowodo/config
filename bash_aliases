@@ -85,6 +85,7 @@ alias hibernate="sudo systemctl hibernate"
 alias suspend="sudo systemctl suspend"
 alias todo="vim ~/.todo"
 alias book="vim ~/.book"
+alias idee="vim ~/.ideas"
 alias learn="sleep 25m && vlc & "
 
 #VPN
