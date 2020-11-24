@@ -84,7 +84,7 @@ alias sumount="sudo systemd-mount -u"
 alias hibernate="sudo systemctl hibernate"
 alias suspend="sudo systemctl suspend"
 alias todo="vim ~/.todo"
-alias book="vim ~/.book"
+alias book="vim ~/.books"
 alias idee="vim ~/.ideas"
 alias learn="sleep 25m && vlc & "
 
