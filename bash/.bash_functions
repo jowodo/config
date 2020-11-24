@@ -21,6 +21,7 @@ Check () {
 
 ### CHANGING OF FOLDERS Inteligently 
 function icd() {
+	ICDHOME=~
 	# make a history and search history first 
 	# store it in ~/.icd
 	# make it a script
@@ -38,7 +39,7 @@ function icd() {
 	#cd "$( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 | sed -e 's/ /\\ /')"
 	#cd "$( find . -not -path '*/\.*' -type d -iwholename *$1* | head - -n 1 | sed -e 's/ /\\ /')"
 		# no hidden directories			#only dirs	# remove trailing /	# sort by lenght of path					# only take shortes	#work with spaces
-	cd "$( find ~ -not -path '*/\.*' -type d -iwholename "*${1%/}*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
+	cd "$( find -L $ICDHOME -not -path '*/\.*' -type d -iwholename "*${1%/}*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
 	pwd
 	fi
 }
