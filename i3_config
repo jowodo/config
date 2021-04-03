@@ -32,8 +32,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -42,7 +42,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+#bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -91,7 +92,7 @@ bindsym $mod+Shift+apostrophe split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+Shift+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -191,7 +192,7 @@ exec /home/pur/.fehbg
 # Set the shortcuts and what they do
 set $mode_display Ext Screen (h) HDMI ON, (n) HDMI OFF
 mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of LVDS1, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1, mode "default"
     bindsym x exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
 
     # back to normal: Enter or Escape
@@ -202,25 +203,37 @@ mode "$mode_display" {
 bindsym $mod+x mode "$mode_display"
 
 # Screen shots
-bindsym --release Print exec spectacle -b # &> /dev/null & pkill spectacle
-bindsym --release Mod4+Print exec spectacle
+#bindsym --release Print exec spectacle -b 
+#bindsym --release Mod4+Print exec spectacle
+bindsym Print exec scrot -e 'mv $f ~/Pics/Screenshots/'
+bindsym Mod4+Print exec scrot --focused -e 'mv $f ~/Pics/Screenshots/' # current window
+bindsym Ctrl+Print exec scrot --select -e 'mv $f ~/Pics/Screenshots/' # select rectangle interactively
+bindsym Mod1+Print exec scrot --multidispl -e 'mv $f ~/Pics/Screenshots/' # all displays
 
 # make gaps
-gaps inner 20
+gaps inner 10
 gaps outer 0
 smart_gaps on
 # for gaps 
 for_window [class="^.*"] border pixel 2
+#border colors
+# class                 border  backgr. text    indicator child_border(this)
+#client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #FC9501
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
 
 # personal keybindings
 bindsym $mod+b exec "firefox"
 bindsym $mod+v exec "vlc"
 bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+m exec "thunderbird"
+bindsym $mod+s exec "signal-desktop"
+bindsym $mod+y exec "signal-desktop"
 
 assign [class="vlc"] 				$ws3
 assign [class="Navigator"] 			$ws8
-assign [class="telegram-desktop"] 	$ws10
+assign [class="telegram-desktop"] 		$ws10
 assign [class="Mail"] 				$ws3
 
 # volume control
@@ -231,7 +244,21 @@ new_float normal
 
 # meta 
 set $meta Mod4
-bindsym $meta+l exec "i3lock -i /home/pur/Pictures/Wallpaper/WP_SU/wp_su_swamp_01.jpg"
+bindsym $meta+l exec "i3lock -i /home/pur/Pics/lock.png"
 bindsym $meta+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym $meta+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym $meta+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $meta+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym $meta+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+
+bindsym $meta+Shift+j exec --no-startup-id xbacklight -dec 5
+bindsym $meta+Shift+k exec --no-startup-id xbacklight -inc 5
+bindsym $meta+Shift+m exec --no-startup-id ~/.xbacklight.toggle
+bindsym $meta+d		  exec --no-startup-id ~/.xkeyboard.toggle
+
+###xinput settings
+#trackpoint
+exec xinput --set-prop 13 331 1 # allow scrolling
+exec xinput --set-prop 13 339 1 # accel speed
+#touchpad
+exec xinput --set-prop 12 339 1 # accel speed
+exec xinput --set-prop 12 319 1 # tap to click
+exec xinput --set-prop 12 327 1 # natural scrolling

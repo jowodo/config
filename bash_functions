@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########## LOGBUCH ###
-LOGBUCH=~/Documents/Computer/log.cs
+LOGBUCH=~/Doc/Computer/log.cs
 # letzten command ins logbuch eintragen 	$ log 
 # vorletzten command ins logbuch   			$ nlog 1
 function log() {
@@ -20,28 +20,29 @@ Check () {
 }
 
 ### CHANGING OF FOLDERS Inteligently 
-function icd() {
-	# make a history and search history first 
-	# store it in ~/.icd
-	# make it a script
-	# if no argument go home
-	if [ "x$1" = "x" ] 
-	then 
-		cd && pwd
-	else 
-	# find "in_time" or "in time" with icd in time
-	#cd $( find -iname $1 | head - -n 1 )
-	#cd $( find . | grep -ie $1 | head - -n 1 )
-	#cd $( find . -type d | grep -m 1 -ie $1 )
-	#cd $( find . -type d -iname $1 | head - -n 1 )
-	#cd $( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 )
-	#cd "$( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 | sed -e 's/ /\\ /')"
-	#cd "$( find . -not -path '*/\.*' -type d -iwholename *$1* | head - -n 1 | sed -e 's/ /\\ /')"
-		# no hidden directories			#only dirs	# remove trailing /	# sort by lenght of path					# only take shortes	#work with spaces
-	cd "$( find ~ -not -path '*/\.*' -type d -iwholename "*${1%/}*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
-	pwd
-	fi
-}
+#function icd() {
+#	# make a history and search history first 
+#	# store it in ~/.icd
+#	# make it a script
+#	# if no argument go home
+#	# icd -c # makes a new cache file 
+#	if [ "x$1" = "x" ] 
+#	then 
+#		cd && pwd
+#	else 
+#	# find "in_time" or "in time" with icd in time
+#	#cd $( find -iname $1 | head - -n 1 )
+#	#cd $( find . | grep -ie $1 | head - -n 1 )
+#	#cd $( find . -type d | grep -m 1 -ie $1 )
+#	#cd $( find . -type d -iname $1 | head - -n 1 )
+#	#cd $( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 )
+#	#cd "$( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 | sed -e 's/ /\\ /')"
+#	#cd "$( find . -not -path '*/\.*' -type d -iwholename *$1* | head - -n 1 | sed -e 's/ /\\ /')"
+#		# no hidden directories			#only dirs	# remove trailing /	# sort by lenght of path					# only take shortes	#work with spaces
+#	cd "$( find -L ~ -not -path '*/\.*' -type d -iwholename "*${1%/}*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
+#	pwd
+#	fi
+#}
 
 ######### CALCULATE
 function c { python -c "print("$1")" ;}
@@ -58,3 +59,8 @@ function alarm { sleep "$1" && tell &> /dev/null &}
 function light { xbacklight = $1 ; }
 function minlight { xbacklight = 0.1; }
 function mkcd { mkdir $1; cd $1; }
+
+### ICD
+if [ -f /home/pur/.icd/icd ] ; then source /home/pur/.icd/icd ; fi
+
+# function rm { mv "$1 ~/.trash/" ; }

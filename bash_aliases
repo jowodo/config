@@ -14,13 +14,15 @@ alias vif="vim ~/.bash_functions"
 alias vis="vim ~/.ssh/config"
 alias vir="vim ~/.bashrc"
 alias vil="vim ~/.bash_local"
+alias vii="vim ~/.config/i3/config"
 alias sus="source /home/pur/.bashrc "
 
 
 ###===System===###
 alias pu="ping -c 2 bestoked.at"
 #reactivate pointing stick after sleep/hibernation
-alias mouse="sudo modprobe -r psmouse && sudo modprobe psmouse"
+alias mouse="sudo modprobe -r psmouse && sudo modprobe psmouse && sleep 1 && xinput set-prop 13 339 1"
+alias accel="xinput set-prop 13 339 1"
 
 #NAVIATION
 alias ..="cd .."
@@ -48,6 +50,7 @@ alias ohrwurm="vim ~/Music/Noten/ohrwurm.txt"
 alias gp="gnuplot"
 alias li="libreoffice"
 alias py="python"
+alias py2="python2"
 alias ytdl="youtube-dl -x --audio-format \"mp3\" "
 
 #special RROG
@@ -74,7 +77,7 @@ alias since="/usr/bin/date && ps -eo pid,tty,start,cmd | grep -i $1"
 alias wifi="sudo systemctl restart netctl-auto@wlp2s0.service"
 alias getconf="cd /home/pur/Documents/Computer/Config_files.git && git pull && source ~/.bashrc && cd -"
 alias gitconf="cd /home/pur/Documents/Computer/Config_files.git && git add * && git commit && git push && source ~/.bashrc && cd - "
-alias bt="rfkill unblock bluetooth && sudo systemctl start bluetooth && bluetoothctl"
+alias bt="rfkill unblock bluetooth && sudo systemctl restart bluetooth && bluetoothctl power on"
 alias btoff="sudo systemctl stop bluetooth* && rfkill block bluetooth"
 alias td="termdown"
 alias vv="vimiv"
@@ -87,9 +90,13 @@ alias todo="vim ~/.todo"
 alias book="vim ~/.books"
 alias idee="vim ~/.ideas"
 alias learn="sleep 25m && vlc & "
+alias ii="icd icd"
 
 #VPN
 alias vpn="f5fpc -s -t vpn.univie.ac.at -u a1301163"
 alias vpni="f5fpc -i"
 alias vpno="f5fpc -o"
 alias ait="rsync -av --del"
+alias icd="icd -v"
+alias glog="git log --graph --oneline"
+alias q=exit

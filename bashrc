@@ -26,3 +26,4 @@ if [ -f ~/.bash_local ] ; then
 
 LANG=en_US.UTF-8
 HISTSIZE=-1
+if [ -f /home/pur/.icd/icd ] ; then source /home/pur/.icd/icd ; fi

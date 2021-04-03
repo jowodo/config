@@ -36,7 +36,8 @@ ethernet _first_ {
 battery all {
         format = "%status %percentage %remaining"
 		low_threshold = 15
-		threshold_type = precentage
+		threshold_type = percentage
+		color_bad = "#FF0000"
 }
 
 disk "/" {
