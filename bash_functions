@@ -55,7 +55,7 @@ function alarm { sleep "$1" && tell &> /dev/null &}
 function since() {
 	date1=$(ps -eo pid,tty,start,cmd | grep -i $1 | grep -v grep | awk '{print $3}')
 	date2=$(/usr/bin/date +'%H:%M:%S') 
-	datediff -i '%H:%M:%S' -f '%0M:%0S' $date1 $date2
+	datediff -i '%H:%M:%S' -f '%0H:%0M:%0S' $date1 $date2
 }
 
 ########### BACKLIGHT
