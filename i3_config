@@ -150,8 +150,20 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #bindsym $mod+Shift+e exec "i3-msg exit"
+#Set the shortcuts and what they do
+#set $exit_i3 Exit i3wm? (y) YES, (n) NO
+#mode "$exit_i3" {
+#	exec i3-nagbar -t warning -m 'Exit i3wm? (y) YES, (n) NO' 
+#    bindsym y exec --no-startup-id i3-msg exit
+#
+#    # back to normal: Enter or Escape or n
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#    bindsym n mode "default"
+#}
+#bindsym $mod+Shift+e "$exit_i3"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -225,7 +237,7 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 
 # personal keybindings
 bindsym $mod+b exec "firefox"
-bindsym $mod+v exec "vlc"
+bindsym $mod+v exec "vlc ~/Music"
 bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+m exec "thunderbird"
 bindsym $mod+s exec "signal-desktop"
