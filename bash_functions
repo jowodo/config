@@ -19,30 +19,6 @@ Check () {
 	dpkg -s $1 | head -n 2
 }
 
-### CHANGING OF FOLDERS Inteligently 
-#function icd() {
-#	# make a history and search history first 
-#	# store it in ~/.icd
-#	# make it a script
-#	# if no argument go home
-#	# icd -c # makes a new cache file 
-#	if [ "x$1" = "x" ] 
-#	then 
-#		cd && pwd
-#	else 
-#	# find "in_time" or "in time" with icd in time
-#	#cd $( find -iname $1 | head - -n 1 )
-#	#cd $( find . | grep -ie $1 | head - -n 1 )
-#	#cd $( find . -type d | grep -m 1 -ie $1 )
-#	#cd $( find . -type d -iname $1 | head - -n 1 )
-#	#cd $( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 )
-#	#cd "$( find ~ -not -path '*/\.*' -type d -iname $1* | head - -n 1 | sed -e 's/ /\\ /')"
-#	#cd "$( find . -not -path '*/\.*' -type d -iwholename *$1* | head - -n 1 | sed -e 's/ /\\ /')"
-#		# no hidden directories			#only dirs	# remove trailing /	# sort by lenght of path					# only take shortes	#work with spaces
-#	cd "$( find -L ~ -not -path '*/\.*' -type d -iwholename "*${1%/}*" | awk '{ print length, $0 }' | sort -n | cut -d" " -f2- | head - -n 1 | sed -e 's/ /\\ /')"
-#	pwd
-#	fi
-#}
 
 ######### CALCULATE
 function c { python -c "print("$1")" ;}
