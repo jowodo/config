@@ -57,3 +57,4 @@ set linebreak
 set number
 set relativenumber
 "set spell
+colorscheme desert
