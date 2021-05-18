@@ -1,18 +1,15 @@
 #!/bin/sh
+split=2
 min=0.1
 nmin=${nmin%.*}
 max=100
-middle=$((max/5))
+middle=$((max/$split))
 nmiddle=${middle%.*}
 current=$(xbacklight)
 ncurrent=${current%.*}
-echo $current
-if [ $ncurrent -lt $nmiddle ]
+if [ $ncurrent -eq $max ] 
 then 
-	xbacklight -set $middle
-elif [ $ncurrent -lt $max ]
-then
-	xbacklight -set $max
-else
 	xbacklight -set $min
+else
+	xbacklight -inc $nmiddle
 fi
