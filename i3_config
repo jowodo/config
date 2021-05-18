@@ -150,22 +150,21 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-#bindsym $mod+Shift+e exec "i3-msg exit"
 bindsym $mod+Shift+e exec [ $(printf "exit?\nNo" | dmenu) = "exit?" ] && i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
+		set $deltapixel 2
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width  $deltapixel px or $deltapixel ppt
+        bindsym j resize grow height   $deltapixel px or $deltapixel ppt
+        bindsym k resize shrink height $deltapixel px or $deltapixel ppt
+        bindsym l resize grow width    $deltapixel px or $deltapixel ppt
 
         # same bindings, but for the arrow keys
         # bindsym Left resize shrink width 10 px or 10 ppt
@@ -190,26 +189,17 @@ bar {
 exec /home/pur/.fehbg
 
 ## Manual management of external displays
-# Set the shortcuts and what they do
-set $mode_display Ext Screen (h) HDMI ON, (n) HDMI OFF
-mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1, mode "default"
-    bindsym x exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-# Declare here the shortcut to bring the display selection menu
-bindsym $mod+x mode "$mode_display"
+# Set the shortcuts and what they do
+#bindsym $mod+x exec [ $(printf "hdmi on?\noff" | dmenu) = "hdmi on?" ] && xrandr --output HDMI2 --auto --right-of eDP1 
+bindsym $mod+x exec ~/.local/bin/hdmi.sh
+bindsym $mod+Shift+x exec ~/.local/bin/hdmi.toggle
 
 # Screen shots
-#bindsym --release Print exec spectacle -b 
-#bindsym --release Mod4+Print exec spectacle
 bindsym Print exec scrot -e 'mv $f ~/Pics/Screenshots/'
-bindsym Mod4+Print exec scrot --focused -e 'mv $f ~/Pics/Screenshots/' # current window
+bindsym $meta+Print exec scrot --focused -e 'mv $f ~/Pics/Screenshots/' # current window
 bindsym Ctrl+Print exec scrot --select -e 'mv $f ~/Pics/Screenshots/' # select rectangle interactively
-bindsym Mod1+Print exec scrot --multidispl -e 'mv $f ~/Pics/Screenshots/' # all displays
+bindsym $mod+Print exec scrot --multidispl -e 'mv $f ~/Pics/Screenshots/' # all displays
 
 # make gaps
 gaps inner 10
