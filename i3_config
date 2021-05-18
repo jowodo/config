@@ -186,7 +186,7 @@ bar {
         status_command i3status
 }
 # background
-exec /home/pur/.fehbg
+exec ~/.fehbg
 
 ## Manual management of external displays
 
@@ -235,7 +235,7 @@ new_float normal
 
 # meta 
 set $meta Mod4
-bindsym $meta+l exec "i3lock -i /home/pur/Pics/lock.png"
+bindsym $meta+l exec "i3lock -i ~/Pics/lock.png"
 bindsym $meta+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym $meta+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym $meta+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status

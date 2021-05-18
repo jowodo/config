@@ -10,7 +10,7 @@ BROWSER=firefox
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-PATH=$PATH:/home/pur/.local/bin
+PATH=$PATH:~/.local/bin
 
 # vim control in bash
 set -o vi
@@ -27,3 +27,4 @@ if [ -f ~/.bash_local ] ; then
 LANG=en_US.UTF-8
 HISTSIZE=-1
 if [ -f /home/pur/.icd/icd ] ; then source /home/pur/.icd/icd ; fi
+
