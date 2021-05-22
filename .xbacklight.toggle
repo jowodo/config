@@ -1,5 +1,5 @@
 #!/bin/sh
-split=2
+split=3
 min=0.1
 nmin=${nmin%.*}
 max=100

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########## LOGBUCH ###
-LOGBUCH=~/Doc/Comp/log.cs
+LOGBUCH=~/.local/log.cs
 # letzten command ins logbuch eintragen 	$ log 
 # vorletzten command ins logbuch   			$ nlog 1
 function log() {

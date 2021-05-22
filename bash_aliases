@@ -72,7 +72,7 @@ alias bigfont="setfont sun12x22"
 #often used
 alias de="setxkbmap de"
 alias us="setxkbmap us"
-alias date="date +'%a %d %b %Y %H:%m:%S %Z'"
+alias date="date +'%a %d %b %Y %H:%M:%S %Z'"
 #alias since="/usr/bin/date && ps -eo pid,tty,start,cmd | grep -i $1"
 alias wifi="sudo systemctl restart netctl-auto@wlp2s0.service"
 #alias getconf="cd /home/pur/Documents/Computer/Config_files.git && git pull && source ~/.bashrc && cd -"
