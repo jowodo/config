@@ -1,15 +1,21 @@
 #!/bin/sh
-split=3
+split=2
+lowfactor=4
 min=0.1
 nmin=${nmin%.*}
 max=100
-middle=$((max/$split))
-nmiddle=${middle%.*}
+low=$((max/($lowfactor*$split)))
+nlow=${low%.*}
+step=$((max/$split))
+nstep=${step%.*}
 current=$(xbacklight)
 ncurrent=${current%.*}
 if [ $ncurrent -eq $max ] 
 then 
 	xbacklight -set $min
+elif [ $ncurrent -eq 0 ] ; then
+	xbacklight -set $low
 else
-	xbacklight -inc $nmiddle
+	xbacklight -inc $nstep
 fi
+xbacklight
