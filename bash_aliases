@@ -4,6 +4,7 @@
 
 alias ls='ls --color=auto --group-directories-first -F'
 alias lsn="ls --color=no -F"
+alias grep="grep --color=auto"
 
 #PROGRAMS
 alias e="evince $1 2> /dev/null "
