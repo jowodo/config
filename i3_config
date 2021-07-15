@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+set $meta Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -196,6 +197,9 @@ exec ~/.fehbg
 bindsym $mod+x exec ~/.local/bin/hdmi.sh
 bindsym $mod+Shift+x exec ~/.local/bin/hdmi.toggle
 
+# XKILL
+bindsym $meta+x exec xkill
+
 # Screen shots
 bindsym Print exec scrot -e 'mv $f ~/Pics/Screenshots/'
 bindsym $meta+Print exec scrot --focused -e 'mv $f ~/Pics/Screenshots/' # current window
@@ -235,7 +239,6 @@ new_float none
 new_float normal 
 
 # meta 
-set $meta Mod4
 bindsym $meta+l exec "i3lock -i ~/Pics/lock.png"
 bindsym $meta+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym $meta+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
