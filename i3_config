@@ -248,6 +248,7 @@ bindsym $meta+Shift+j exec --no-startup-id xbacklight -dec 5
 bindsym $meta+Shift+k exec --no-startup-id xbacklight -inc 5
 bindsym $meta+Shift+m exec --no-startup-id ~/.xbacklight.toggle
 bindsym $meta+d		  exec --no-startup-id ~/.xkeyboard.toggle
+bindsym $meta+c                        exec --no-startup-id ~/.local/bin/tts.sh
 
 ###xinput settings
 #trackpoint
