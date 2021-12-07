@@ -104,3 +104,6 @@ alias icd="icd -v"
 alias glog="git log --graph --oneline"
 alias q=exit
 alias docker="sudo docker"
+
+alias win7="qemu-system-x86_64 -drive file=/home/pur/Doc/Computer/Distros/windows7.img,format=qcow2 -enable-kvm -m 4G & echo 'ctrl+alt+g to detach mouse//ctrl+alt+f fullscreen'"
+

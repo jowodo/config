@@ -1,0 +1,6 @@
+#!/bin/bash 
+DEVICE=`xinput | grep Synaptics | awk '{print $5}'| grep -Eo "[0-9]+"`
+echo $DEVICE
+PROPERTY=`xinput list-props $DEVICE | grep Tapping | head -n1  | awk '{print $4}' | grep -Eo "[0-9]+"`
+echo $PROPERTY
+xinput set-prop $DEVICE $PROPERTY 1
