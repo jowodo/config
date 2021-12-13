@@ -58,3 +58,5 @@ set number
 set relativenumber
 "set spell
 colorscheme desert
+"colorscheme evening 
+
