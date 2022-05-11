@@ -45,3 +45,12 @@ function mkcd { mkdir $1; cd $1; }
 if [ -f /home/pur/.icd/icd ] ; then source /home/pur/.icd/icd ; fi
 
 # function rm { mv "$1 ~/.trash/" ; }
+
+TRKFILE=$HOME/.trk
+function trk {
+	if [ $# -eq 0 ] ; then 
+		tail $TRKFILE
+	else 
+		echo `command date +%Y.%m.%d-%H:%M` "> $@" >> $TRKFILE
+	fi
+}
