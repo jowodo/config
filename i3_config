@@ -9,8 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-#set $mod Mod1
-#set $meta Mod4
+#set $mod Mod1 # Alt
+#set $meta Mod4 # windows
 set $mod Mod4
 set $meta Mod1
 
@@ -47,10 +47,12 @@ floating_modifier $mod
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec termite
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec st
 
 # kill focused window
-bindsym $mod+Shift+q kill
+#bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -155,6 +157,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec [ $(printf "exit?\nNo" | dmenu) = "exit?" ] && i3-msg exit
+bindsym $mod+Shift+q exec [ $(printf "exit?\nNo" | dmenu) = "exit?" ] && i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -187,6 +190,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    position top
         status_command i3status
 }
 # background
@@ -204,7 +208,9 @@ bindsym $meta+x exec xkill
 
 # Screen shots
 bindsym Print exec scrot -e 'mv $f ~/Pics/Screenshots/'
+bindsym $mod+p exec scrot -e 'mv $f ~/Pics/Screenshots/'
 bindsym $meta+Print exec scrot --focused -e 'mv $f ~/Pics/Screenshots/' # current window
+bindsym $mod+Shift+p exec scrot --focused -e 'mv $f ~/Pics/Screenshots/' # current window
 bindsym Ctrl+Print exec scrot --select -e 'mv $f ~/Pics/Screenshots/' # select rectangle interactively
 bindsym $mod+Print exec scrot --multidispl -e 'mv $f ~/Pics/Screenshots/' # all displays
 
@@ -222,8 +228,9 @@ client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 
 # personal keybindings
-bindsym $mod+b exec "firefox"
-bindsym $mod+v exec "vlc ~/Music"
+bindsym $mod+b exec "brave"
+#bindsym $mod+v exec "vlc ~/Music"
+bindsym $mod+v exec "pushd ~/Music/ && ls -c ~/Music/ | xargs -d '\n' vlc &" 
 bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+m exec "thunderbird"
 bindsym $mod+s exec "signal-desktop"

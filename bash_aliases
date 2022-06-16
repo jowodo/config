@@ -8,6 +8,7 @@ alias grep="grep --color=auto"
 
 #PROGRAMS
 alias e="evince $1 2> /dev/null "
+alias z="zathura $1 2> /dev/null "
 alias fire="firefox 2> /dev/null &"
 alias gp="gnuplot"
 alias via="vim ~/.bash_aliases"
@@ -52,7 +53,7 @@ alias gp="gnuplot"
 alias li="libreoffice"
 alias py="python"
 alias py2="python2"
-alias ytdl="youtube-dl -x --audio-format \"mp3\" -o '~/Music/%(title)s.%(ext)s' "
+alias ytdl="youtube-dl -x --no-mtime --audio-format \"mp3\" -o '~/Music/%(title)s.%(ext)s' "
 
 #special RROG
 alias fet="figlet"
@@ -73,7 +74,7 @@ alias bigfont="setfont sun12x22"
 #often used
 alias de="setxkbmap de"
 alias us="setxkbmap us"
-alias date="date +'%a %d %b %Y %H:%M:%S %Z'"
+#alias date="date +'%a %d %b %Y %H:%M:%S %Z'"
 #alias since="/usr/bin/date && ps -eo pid,tty,start,cmd | grep -i $1"
 alias wifi="sudo systemctl restart netctl-auto@wlp2s0.service"
 #alias getconf="cd /home/pur/Documents/Computer/Config_files.git && git pull && source ~/.bashrc && cd -"
@@ -92,7 +93,7 @@ alias suspend="sudo systemctl suspend"
 alias todo="vim ~/.todo"
 alias book="vim ~/.books.md"
 alias idee="vim ~/.ideas"
-alias learn="sleep 25m && vlc & "
+alias learn="date && sleep 25m && vlc & "
 alias ii="icd icd"
 
 #VPN
@@ -106,4 +107,4 @@ alias q=exit
 alias docker="sudo docker"
 
 alias win7="qemu-system-x86_64 -drive file=/home/pur/Doc/Computer/Distros/windows7.img,format=qcow2 -enable-kvm -m 4G & echo 'ctrl+alt+g to detach mouse//ctrl+alt+f fullscreen'"
-
+alias note="echo \n && date +%Y.%m.%d-%H:%M:%S >> ~/.note && echo =================== >> ~/.note && vim '+normal G' ~/.note"
