@@ -110,9 +110,9 @@ echo HOOKS=(base udev autodetect modconf block resume filesystems keyboard fsck)
 echo /etc/mkinitcpio.conf
 echo "# resume added to HOOKS"
 mkinitcpio -p linux
-echo "# added resume=UUID=$swapUUID to cmd"
-echo GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=UUID=44990010-b0ab-4c0c-9b37-46a7ca0f01d3"
-echo vim /etc/default/grub
+echo $SWAPUUID=$(grep swap /etc/fstab| awk '{print $1}')
+cp /etc/default/grub /etc/default/grub.bkp
+sed -i "/s/quiet/quiet resume=${SWAPUUID}/" /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 echo AllowSuspendThenHibernate=yes
 echo /etc/systemd/sleep.conf
