@@ -1,6 +1,9 @@
 MAINUSER=pur
 SECOND_USER=cube
 
+
+[ "$(id -u $MAINUSER 2>/dev/null)" == "" ] && useradd -m $MAINUSER
+[ "$(id -u $SECOND_USER 2>/dev/null)" == "" ] && useradd -m $SECOND_USER
 pacman -S reflector
 reflector | grep -v rsync | sudo tee /etc/pacman.d/mirrorlist
 pacman -S archlinux-keyring intel-ucode
@@ -12,20 +15,20 @@ pacman -S testdisk #recovery tool
 pacman -S usbutils # lsusb
 
 ## NETWORK
-pacman -S net-tools inetutils openssh rsync wget ufw
+pacman -S openssh rsync wget ufw
 groupadd netwrk
 usermod -aG netwrk $MAINUSER 
 usermod -aG netwrk $SECOND_USER
-echo "cat /etc/netctl/examples/wireless-wpa-configsection | sudo tee -a /etc/netctl/wlp2s0-eduroam"
+#echo "cat /etc/netctl/examples/wireless-wpa-configsection | sudo tee -a /etc/netctl/wlp2s0-eduroam"
 
 # EXTRA SOFTWAR
 pacman -S unzip htop sudo 
 pacman -S vim vim-spell-de ed tmux screen ranger
 usermod -aG wheel $MAINUSER
-pacman -S 
 
 # PROGRAMMING 
-pacman -S base-devel r gcc-fortran python-pip python-numpy python-matplotlib
+pacman -S base-devel r python-pip python-numpy python-matplotlib
+pacman -S r gcc-fortran
 
 # GRAPHICAL USER INTERFACE
 pacman -S xorg-xinput xorg-xkill i3-gaps i3lock-color dmenu autorandr terminus-font
@@ -72,19 +75,19 @@ usermod -aG video $MAINUSER
 # usermod -aG rfkill,netwrk,music karin
 
 ## MEDIA
-pacman -S pulseaudio-bluetooth bluedevil blueman bluez-utils bluez bluez-tools alsa-utils pavucontrol volumeicon pasystray
+pacman -S vlc mpv pasystray volumeicon pavucontrol
+pacman -S pulseaudio-bluetooth bluedevil blueman bluez-utils bluez bluez-tools alsa-utils 
 sudo usermod -aG rfkill,audio $MAINUSER
-pacman -S vlc mpv
 
 ## DAW
 #qjackctl & vmpk & amsynth & daw
-pacman -S a2jmidid jack_capture pulseaudio-jack python-rdflib zita-ajbridge 
-pacman -S celt libffado jack_utils qjackctl alsa-utils cadence
-pacman -S ams calf zynaddsubfx hyrdogen # synthesizer and drum machine
-pacman -S ardour ladspa vmpk realtime-privileges non-sequencer
-usermod -aG realtime,rtkit pur
-echo "@audio - rtprio 99" | sudo tee -a /etc/security/limits.conf
-mkinitcpio -p linux
+#pacman -S a2jmidid jack_capture pulseaudio-jack python-rdflib zita-ajbridge 
+#pacman -S celt libffado jack_utils qjackctl alsa-utils cadence
+#pacman -S ams calf zynaddsubfx hyrdogen # synthesizer and drum machine
+#pacman -S ardour ladspa vmpk realtime-privileges non-sequencer
+#usermod -aG realtime,rtkit pur
+##echo "@audio - rtprio 99" | sudo tee -a /etc/security/limits.conf
+#mkinitcpio -p linux
 
 ## PASSWORDS 
 sudo pacman -S pass keepass
@@ -106,20 +109,34 @@ EOF
 
 #TODO back light hibernation and sleep 
 echo "HandleLidSwitch=suspend-then-hibernate" >> /etc/systemd/logind.conf
-echo HOOKS=(base udev autodetect modconf block resume filesystems keyboard fsck)
-echo /etc/mkinitcpio.conf
+sed -i "s/block/block resume/" /etc/mkinitcpio.conf
 echo "# resume added to HOOKS"
 mkinitcpio -p linux
 echo $SWAPUUID=$(grep swap /etc/fstab| awk '{print $1}')
 cp /etc/default/grub /etc/default/grub.bkp
 sed -i "/s/quiet/quiet resume=${SWAPUUID}/" /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
-echo AllowSuspendThenHibernate=yes
-echo /etc/systemd/sleep.conf
-echo vim /etc/systemd/system/suspend@.service
-echo systemctl enable suspend@${MAINUSER}.service
-echo mkdir /etc/systemd/system/hibernate.target.wants
-echo ln -s -T /etc/systemd/system/resume@${MAINUSER}.service /etc/systemd/system/hibernate.target.wants/resume@pur.service
+sed -i "s/#AllowSuspendThenHibernate/AllowSuspendThenHibernate/" /etc/systemd/sleep.conf
+echo "HibernateDelaSec=15min" >> /etc/systemd/sleep.conf
+tee /etc/systemd/system/suspend@.service<<EOF
+[Unit]
+Description=User suspend actions
+Before=sleep.target
+
+[Service]
+User=%I
+Type=forking
+ExecStartPre=/usr/local/bin/set_DISPLAY_for_sleep.sh %I
+EnvironmentFile=/home/%I/.display
+ExecStart=/usr/bin/i3lock -i /home/%I/Pics/lock.png
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=sleep.target
+EOF
+systemctl enable suspend@${MAINUSER}.service
+#echo mkdir /etc/systemd/system/hibernate.target.wants
+#echo ln -s -T /etc/systemd/system/resume@${MAINUSER}.service /etc/systemd/system/hibernate.target.wants/resume@pur.service
 
 # get config files
 su - ${MAINUSER}
