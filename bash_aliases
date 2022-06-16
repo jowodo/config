@@ -17,6 +17,7 @@ alias vis="vim ~/.ssh/config"
 alias vir="vim ~/.bashrc"
 alias vil="vim ~/.bash_local"
 alias vii="vim ~/.config/i3/config"
+alias viv="vim ~/.vimrc"
 alias sus="source ~/.bashrc "
 
 

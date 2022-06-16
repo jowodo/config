@@ -40,11 +40,16 @@ set laststatus =2
 " Set linenumbers
 set number
 set relativenumber
-set wrap
+<<<<<<< HEAD
+"set spell
+colorscheme desert
+"colorscheme evening 
 
-" column ruler at 100
-set ruler
-set colorcolumn=90
+=======
+"set wrap
+
+"set ruler
+"set colorcolumn=90
 
 " Highlight searching
 set incsearch
@@ -60,11 +65,4 @@ endif
 set autoread " autoread files
 set mouse=a " use mouse for scroll or window size
 
-" -----------------------------------------------------------------------------
-"  APPEARANCE
-"  ----------------------------------------------------------------------------
-" set guifont=Sauce\ Code\ Pro\ Medium\ Nerd\ Font\ Complete\ Mono\ 12
-syntax on
-"3et background=dark
-"let g:onedark_termcolors=16
-" colorscheme flattened_dark
+"syntax on
