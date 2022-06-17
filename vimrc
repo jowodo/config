@@ -40,12 +40,12 @@ set laststatus =2
 " Set linenumbers
 set number
 set relativenumber
-<<<<<<< HEAD
+
 "set spell
 colorscheme desert
 "colorscheme evening 
 
-=======
+"=======
 "set wrap
 
 "set ruler
