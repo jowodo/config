@@ -8,7 +8,7 @@ alias grep="grep --color=auto"
 
 #PROGRAMS
 alias e="evince $1 2> /dev/null "
-alias z="zathura $1 2> /dev/null "
+alias z="zathura $1 2> /dev/null"
 alias fire="firefox 2> /dev/null &"
 alias gp="gnuplot"
 alias via="vim ~/.bash_aliases"
