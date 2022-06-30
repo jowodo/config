@@ -1,0 +1,24 @@
+#!/bin/bash
+curkb=$(setxkbmap -query | grep layout | awk '{print$2}')
+us="us"
+langs=("us" "de" ) # "ak")
+cmd=setxkbmap
+
+isprev=0
+for layout in "${langs[@]}"
+do 
+	if [ $isprev -gt 0 ] 
+	then
+		$cmd $layout
+		isprev=-1
+	fi
+	if [ $curkb = $layout ] 
+	then
+		isprev=1
+	fi
+done 
+if [ $isprev -gt 0 ]
+then
+	$cmd ${langs[0]}
+fi
+

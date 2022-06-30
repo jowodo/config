@@ -254,8 +254,10 @@ bindsym $meta+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &
 bindsym $meta+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym $meta+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 
-bindsym $meta+Shift+j exec --no-startup-id xbacklight -dec 5
-bindsym $meta+Shift+k exec --no-startup-id xbacklight -inc 5
+bindsym $meta+Shift+h exec --no-startup-id xbacklight -dec 1
+bindsym $meta+Shift+l exec --no-startup-id xbacklight -inc 1
+bindsym $meta+Shift+j exec --no-startup-id xbacklight -dec 10
+bindsym $meta+Shift+k exec --no-startup-id xbacklight -inc 10
 bindsym $meta+Shift+m exec --no-startup-id ~/.xbacklight.toggle
 bindsym $meta+d		  exec --no-startup-id ~/.xkeyboard.toggle
 bindsym $meta+c                        exec --no-startup-id ~/.local/bin/tts.sh
