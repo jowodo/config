@@ -237,10 +237,13 @@ bindsym $mod+m exec "thunderbird"
 bindsym $mod+s exec "signal-desktop"
 bindsym $mod+y exec "signal-desktop"
 
+
 assign [class="vlc"] 				$ws3
 assign [class="Navigator"] 			$ws8
 assign [class="telegram-desktop"] 		$ws10
 assign [class="Mail"] 				$ws3
+
+for_window [class="ffplay" title="/dev/video0"] floating enable # webcam
 
 # volume control
 exec --no-startup-id /usr/bin/pasystray
