@@ -10,18 +10,19 @@
 ##    ...
 ##
 #################################################
-
-TMPFILE=play.txt
-CONTAINER=mp4
-OUTNAME=output
-KEEPVIDEO=0
-WIDTH=640
-
 [ "x$1" = "x" ] && echo "USAGE: bash $0 dirname fps" && exit 
 [ "x$2" = "x" ] && echo "USAGE: bash $0 dirname fps" && exit 
 # REMOVE OPTIONAL TRAILING SLASH
 DIR=${1%/}
 FPS=$2
+
+TMPFILE=play.txt
+CONTAINER=mp4
+KEEPVIDEO=0
+WIDTH=640
+OUTNAME=$(echo $DIR | tr "-" "\n" | tail -n1 | sed "s@/@@")-${WIDTH}-${FPS}
+#OUTNAME=${DIR}-${WIDTH}-${FPS}
+
 if [ $FPS -gt 10 ] 
 then
         DURATION="0.0$((1000/$FPS))"
