@@ -164,3 +164,9 @@ pacman -Syu virt-install # kvm for qemu
 pacman -S espeak
 pacman -S spectacle festival festival-us festival-english
 
+
+## POWER MANAGEMENT 
+pacman -S powertop
+
+## SYNC AND BACKUP
+pacman -S syncthing
