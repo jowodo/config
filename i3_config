@@ -208,12 +208,12 @@ bindsym $mod+Shift+x exec ~/.local/bin/hdmi.toggle
 bindsym $meta+x exec xkill
 
 # Screen shots
-bindsym Print exec scrot -e 'mv $f ~/Pics/Screenshots/'
-#bindsym $mod+p exec scrot -e 'mv $f ~/Pics/Screenshots/'
-bindsym $meta+Print exec scrot --focused -e 'mv $f ~/Pics/Screenshots/' # current window
-bindsym $mod+Shift+p exec scrot --focused -e 'mv $f ~/Pics/Screenshots/' # current window
-bindsym Ctrl+Print exec scrot --select -e 'mv $f ~/Pics/Screenshots/' # select rectangle interactively
-bindsym $mod+Print exec scrot --multidispl -e 'mv $f ~/Pics/Screenshots/' # all displays
+bindsym Print exec "cd ~/Pics/2022/Screenshots/ && scrot" 
+bindsym $mod+p exec "cd ~/Pics/2022/Screenshots/ && scrot" 
+bindsym $meta+Print exec "cd ~/Pics/2022/Screenshots && scrot --focused" # current window
+bindsym $mod+Shift+p exec "cd ~/Pics/2022/Screenshots && scrot --focused" # current window
+bindsym Ctrl+Print "cd ~/Pics/2022/Screenshots && exec scrot --select" # select rectangle interactively
+bindsym $mod+Print "cd ~/Pics/2022/Screenshots && exec scrot --multidispl" # all displays
 
 # make gaps
 gaps inner 10
