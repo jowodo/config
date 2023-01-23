@@ -95,6 +95,8 @@ alias suspend="sudo systemctl suspend"
 alias todo="vim ~/.todo"
 alias book="vim ~/.books.md"
 alias idee="vim ~/.ideas"
+alias links="vim ~/.links"
+alias note="vim ~/.note"
 alias learn="date && sleep 25m && vlc & "
 alias ii="icd icd"
 
