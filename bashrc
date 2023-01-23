@@ -4,17 +4,17 @@
 
 export EDITOR=vim
 export BROWSER=firefox
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
+LANG=en_US.UTF-8
+HISTSIZE=-1
 PS1='[\u@\h \W]\$ '
 
-PATH=$PATH:~/.local/bin
+# IF NOT RUNNING INTERACTIVELY, DON'T DO ANYTHING
+[[ $- != *i* ]] && return
 
-# vim control in bash
+# VI CONTROL IN BASH
 set -o vi
 
+# SOURCE ALIASES AND FUNCTIONS
 export XDG_CONFIG_HOME=~/Doc/Computer/Config_files.git
 if [ -f ~/.bash_aliases ] ; then source ~/.bash_aliases ; fi
 if [ -f $XDG_CONFIG_HOME/bash_aliases ] ; then source $XDG_CONFIG_HOME/bash_aliases ; fi
@@ -25,7 +25,7 @@ if [ -f $XDG_CONFIG_HOME/bash_functions ] ; then source $XDG_CONFIG_HOME/bash_fu
 if [ -f ~/.bash_local ] ; then source ~/.bash_local; fi
 if [ -f $XDG_CONFIG_HOME/bash_local ] ; then source $XDG_CONFIG_HOME/bash_local; fi
 
-LANG=en_US.UTF-8
-HISTSIZE=-1
-if [ -f /home/pur/.icd/icd ] ; then source /home/pur/.icd/icd ; fi
+PATH=$PATH:~/.local/bin
+PATH=$PATH:$XDG_CONFIG_HOME/bin
 
+if [ -f /home/pur/.icd/icd ] ; then source /home/pur/.icd/icd ; fi
