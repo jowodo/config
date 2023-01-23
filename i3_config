@@ -236,6 +236,8 @@ bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+m exec "thunderbird"
 bindsym $mod+s exec "signal-desktop"
 bindsym $mod+y exec "signal-desktop"
+#bindsym $mod+d exec 'dict -d ! $(xclip -o ) | grep  \"1\.\" | dmenu'
+bindsym $mod+d exec "dict -d ! $(xclip -o ) | grep '1\.' | dmenu"
 
 
 assign [class="vlc"] 				$ws3
