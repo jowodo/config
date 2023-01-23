@@ -209,7 +209,7 @@ bindsym $meta+x exec xkill
 
 # Screen shots
 bindsym Print exec "cd ~/Pics/2022/Screenshots/ && scrot" 
-bindsym $mod+p exec "cd ~/Pics/2022/Screenshots/ && scrot" 
+#bindsym $mod+p exec "cd ~/Pics/2022/Screenshots/ && scrot" 
 bindsym $meta+Print exec "cd ~/Pics/2022/Screenshots && scrot --focused" # current window
 bindsym $mod+Shift+p exec "cd ~/Pics/2022/Screenshots && scrot --focused" # current window
 bindsym Ctrl+Print "cd ~/Pics/2022/Screenshots && exec scrot --select" # select rectangle interactively
@@ -264,6 +264,7 @@ bindsym $meta+Shift+k exec --no-startup-id xbacklight -inc 10
 bindsym $meta+Shift+m exec --no-startup-id ~/.xbacklight.toggle
 bindsym $meta+d		  exec --no-startup-id ~/.xkeyboard.toggle
 bindsym $meta+c                        exec --no-startup-id ~/.local/bin/tts.sh
+bindsym $meta+b       exec --no-startup-id xsel >> ~/.bookmarks && echo "" >> ~/.bookmarks
 
 ###xinput settings
 #trackpoint
@@ -272,4 +273,5 @@ exec xinput --set-prop 13 339 1 # accel speed
 #touchpad
 exec xinput --set-prop 12 339 1 # accel speed
 exec xinput --set-prop 12 319 1 # tap to click
-exec xinput --set-prop 12 327 1 # natural scrolling
+#exec xinput --set-prop 12 327 1 # natural scrolling
+exec xinput set-prop $(xinput | grep Synaptics | awk '{print $5}'| grep -Eo "[0-9]+"`) $(xinput list-props $DEVICE | grep Natural | head -n1  | awk '{print $5}' | grep -Eo "[0-9]+"`) 1 # natural scrolling 
