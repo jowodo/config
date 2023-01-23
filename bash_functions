@@ -27,7 +27,8 @@ function ca { echo "$(($1))" ; }
 
 ############ TIMER
 alias tell=" cvlc ~/Music/* vlc://quit" 
-function alarm { date && sleep "$1" && tell &> /dev/null &}
+#function alarm { date && sleep "$1" && [ -v $2 ] && tell &> /dev/null && return ; vlc ; }
+function alarm { date && sleep "$1" && if [ -z $2 ] ; then  echo "$2" ; vlc  ; else  tell ; fi ;   } 
 function since() {
 	date1=$(ps -eo pid,tty,start,cmd,user | grep -i $1 | grep $(whoami) | grep -v grep | awk '{print $3}')
 	date2=$(/usr/bin/date +'%H:%M:%S') 
