@@ -55,3 +55,25 @@ function trk {
 		echo `command date +%Y.%m.%d-%H:%M` "> $@" >> $TRKFILE
 	fi
 }
+
+### GTAR 
+function gtar {
+    USAGE='''
+\tUSAGE: $0 [-c|-x] [dir|dir.tar.gz.gpg]\n
+        \t\t-c create\n
+        \t\t-x extract\n
+    '''
+    EXTENSION='tar.gz.gpg'
+    if [ $# != 2 ] ; then 
+        echo -ne $USAGE
+        return 1;
+    elif [ $1 == "-c" ] ; then
+        echo '$1 is -c'
+        echo '$2 is '"${2%/}"
+        tar czf - ${2%/} | gpg -c > ${2%/}.$EXTENSION
+    elif [ $1 == "-x" ] ; then 
+        echo '$1 is -x'
+        echo '$2 is '"${2%/}"
+        gpg -d $2 | tar xzf - 
+    fi
+}

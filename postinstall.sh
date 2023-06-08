@@ -23,7 +23,7 @@ usermod -aG netwrk $SECOND_USER
 
 # EXTRA SOFTWAR
 pacman -S unzip htop sudo 
-pacman -S vim vim-spell-de ed tmux screen ranger
+pacman -S vim vim-spell-de ed tmux screen ranger dictd zsh
 usermod -aG wheel $MAINUSER
 
 # PROGRAMMING 
@@ -90,10 +90,11 @@ sudo usermod -aG rfkill,audio $MAINUSER
 #mkinitcpio -p linux
 
 ## PASSWORDS 
-sudo pacman -S pass keepass
+sudo pacman -S pass keepassxc
 
 ## LANGUAGES
 pacman -S noto-fonts-cjk # non-latin japanese, chinese, korean
+pacman -S noto-fonts-emoji
 
 
 ## POWER MANAGEMENT

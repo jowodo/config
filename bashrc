@@ -3,7 +3,7 @@
 #
 
 export EDITOR=vim
-export BROWSER=firefox
+export BROWSER=brave
 LANG=en_US.UTF-8
 HISTSIZE=-1
 PS1='[\u@\h \W]\$ '

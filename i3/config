@@ -48,7 +48,8 @@ floating_modifier $mod
 #bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec termite
 #bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec st
+#bindsym $mod+Return exec st
+bindsym $mod+Return exec sakura
 
 # kill focused window
 #bindsym $mod+Shift+q kill
@@ -201,8 +202,8 @@ exec ~/.fehbg
 
 # Set the shortcuts and what they do
 #bindsym $mod+x exec [ $(printf "hdmi on?\noff" | dmenu) = "hdmi on?" ] && xrandr --output HDMI2 --auto --right-of eDP1 
-bindsym $mod+x exec ~/.local/bin/hdmi.sh
-bindsym $mod+Shift+x exec ~/.local/bin/hdmi.toggle
+#bindsym $mod+x exec ~/.local/bin/hdmi.sh
+#bindsym $mod+Shift+x exec ~/.local/bin/hdmi.toggle
 
 # XKILL
 bindsym $meta+x exec xkill
@@ -231,13 +232,13 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 # personal keybindings
 bindsym $mod+b exec "brave"
 #bindsym $mod+v exec "vlc ~/Music"
-bindsym $mod+v exec "pushd ~/Music/ && ls -c ~/Music/ | xargs -d '\n' vlc &" 
+bindsym $mod+v exec "pushd ~/Music/ && ls -t ~/Music/ | xargs -d '\n' vlc &" 
 bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+m exec "thunderbird"
-bindsym $mod+s exec "signal-desktop"
+bindsym $mod+x exec "signal-desktop"
 bindsym $mod+y exec "signal-desktop"
-bindsym $mod+d exec "dict $(xclip -o ) 2>&1 | grep -e '1[.:] ' -e '2[.:] ' -e '3[.:] ' -e '4[.:] ' -e '(a)' -e '(b)' -e 'No def' | dmenu "
-bindsym $mod+Shift+d exec "dict $(xclip -o ) 2>&1 | grep -e '1[.:] ' -e '2[.:] ' -e '3[.:] ' -e '4[.:] ' -e '(a)' -e '(b)' -e 'No def' | dmenu -l 10"
+bindsym $mod+d exec "dict $(xclip -o ) 2>&1 | grep -A1 -e '1[.:] ' -e '2[.:] ' -e '3[.:] ' -e '4[.:] ' -e '(a)' -e '(b)' -e 'No def' | dmenu "
+bindsym $mod+Shift+d exec "dict $(xclip -o ) 2>&1 | grep -e '1[.:] ' -e '2[.:] ' -e '3[.:] ' -e '4[.:] ' -e '(a)' -e '(b)' -e 'No def' -A1 | dmenu -l 10"
 # to display multiple lines, but doesn't work because notify send needs ""
 #bindsym $mod+Shift+d exec "notify-send $(dict -d ! $(xclip -o ) 2>&1 | grep -e '1[.:] ' -e '2[.:] ' -e '3[.:] ' -e '4[.:] ' -e 'No def' | sed 's/\n/\t/g' ) "
 
@@ -266,8 +267,8 @@ bindsym $meta+Shift+l exec --no-startup-id xbacklight -inc 1
 bindsym $meta+Shift+j exec --no-startup-id xbacklight -dec 10
 bindsym $meta+Shift+k exec --no-startup-id xbacklight -inc 10
 bindsym $meta+Shift+m exec --no-startup-id ~/.xbacklight.toggle
-bindsym $meta+d		  exec --no-startup-id ~/.xkeyboard.toggle
-bindsym $meta+c                        exec --no-startup-id ~/.local/bin/tts.sh
+bindsym $meta+d       exec --no-startup-id ~/.xkeyboard.toggle
+bindsym $meta+c       exec --no-startup-id ~/.local/bin/tts.sh
 bindsym $meta+b       exec --no-startup-id xsel >> ~/.bookmarks && echo "" >> ~/.bookmarks
 
 ###xinput settings

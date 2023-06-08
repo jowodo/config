@@ -55,7 +55,7 @@ alias li="libreoffice"
 alias py="python"
 alias py2="python2"
 alias ytdl="youtube-dl -x --no-mtime --audio-format \"mp3\" -o '~/Music/%(title)s.%(ext)s' "
-alias wldl="wget --directory-prefix=/home/share/Music/ --recursive --no-directories --level=1 --accept '*.mp3' https://wlankabel.at/ytdl/downloads 2>&1 >/dev/null | grep mp3"
+alias wldl="wget --directory-prefix=/home/share/Music/ --recursive --no-directories --level=1 --accept '*.mp3' https://wlankabel.at/ytdl/downloads 2>&1 >/dev/null | grep mp3$"
 
 #special RROG
 alias fet="figlet"
@@ -85,8 +85,10 @@ alias bt="rfkill unblock bluetooth && sudo systemctl restart bluetooth && blueto
 alias btcl="bluetoothctl"
 alias btoff="sudo systemctl stop bluetooth* && rfkill block bluetooth"
 alias td="termdown"
+alias todo="vim ~/.todo"
 alias vv="vimiv"
 alias cl3="cal -3"
+alias ta="tmux attach"
 
 alias smount="sudo systemd-mount --owner=$USER"
 alias sumount="sudo systemd-mount -u"
@@ -97,7 +99,7 @@ alias book="vim ~/.books.md"
 alias idee="vim ~/.ideas"
 alias links="vim ~/.links"
 alias note="vim ~/.note"
-alias learn="date && sleep 25m && vlc & "
+alias learn="echo && date +'%T' && date --date='+25min' +'%T' && sleep 25m && vlc & "
 alias ii="icd icd"
 
 #VPN
