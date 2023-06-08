@@ -1,0 +1,24 @@
+#!/bin/bash
+#set -xe
+
+TTSCMD="flite -voice slt"
+TTSCMD="flite -voice kal16"
+OUTDIR=`pwd`
+WIKIURL=$1
+ARTICLENAME=${WIKIURL##*/}
+#echo $ARTICLENAME
+#exit
+#ARTICLENAME=Narrative
+DOWNLOADURL="https://en.wikipedia.org/wiki/Special:Export/${ARTICLENAME}"
+TMPDIR=$(mktemp -d)
+pushd $TMPDIR
+wget $DOWNLOADURL 
+wikiextractor $ARTICLENAME -o - > ${ARTICLENAME}.txt
+#cp ${ARTICLENAME}.txt ${OUTDIR}
+#exit
+${TTSCMD} -f ${ARTICLENAME}.txt -o ${ARTICLENAME}.wav
+ffmpeg -i ${ARTICLENAME}.wav ${ARTICLENAME}.mp3
+mv ${ARTICLENAME}.mp3 ${OUTDIR}
+popd
+rm $TMPDIR -rf 
+
