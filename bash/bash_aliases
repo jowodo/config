@@ -11,14 +11,14 @@ alias e="evince $1 2> /dev/null "
 alias z="zathura $1 2> /dev/null"
 alias fire="firefox 2> /dev/null &"
 alias gp="gnuplot"
-alias via="vim $XDG_CONFIG_HOME/bash_aliases"
-alias vif="vim $XDG_CONFIG_HOME/bash_functions"
+alias via="vim $XDG_CONFIG_HOME/bash/bash_aliases"
+alias vif="vim $XDG_CONFIG_HOME/bash/bash_functions"
 alias vis="vim ~/.ssh/config"
-alias vir="vim $XDG_CONFIG_HOME/bashrc"
+alias vir="vim $XDG_CONFIG_HOME/bash/bashrc"
 alias vil="vim ~/.bash_local"
 alias vii="vim $XDG_CONFIG_HOME/i3/config"
 alias viv="vim ~/.vimrc"
-alias sus="source $XDG_CONFIG_HOME/bashrc "
+alias sus="source $XDG_CONFIG_HOME/bash/bashrc "
 
 
 ###===System===###
