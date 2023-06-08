@@ -31,7 +31,7 @@ pacman -S base-devel r python-pip python-numpy python-matplotlib
 pacman -S r gcc-fortran
 
 # GRAPHICAL USER INTERFACE
-pacman -S xorg-xinput xorg-xkill i3-gaps i3lock-color dmenu autorandr terminus-font
+pacman -S xorg-xinput xorg-xkill i3-wm i3lock i3status dmenu autorandr terminus-font
 pacman -S zathura zathura-pdf-mupdf gvim alacritty
 pacman -S kolourpaint scrot imagemagick gimp mtpaint gnuplot 
 pacman -S texlive-latexextra texlive-most texlive-formatsextra
