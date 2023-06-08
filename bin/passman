@@ -1,0 +1,12 @@
+#!/bin/bash 
+# wraper script that keeps keepass storage up to date
+#
+DBNAME=".db.kdbx"
+REMOTEDIR="tk:~"
+LOCALDIR="$HOME/.password-store"
+
+mkdir -p ${LOCALDIR}
+scp ${REMOTEDIR}/${DBNAME} ${LOCALDIR}
+keepassxc ${LOCALDIR}/${DBNAME}
+scp ${LOCALDIR}/${DBNAME} ${REMOTEDIR}
+
