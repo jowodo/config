@@ -15,7 +15,7 @@ PS1='[\u@\h \W]\$ '
 set -o vi
 
 # SOURCE ALIASES AND FUNCTIONS
-export XDG_CONFIG_HOME=~/Doc/Computer/Config_files.git
+export XDG_CONFIG_HOME="~/.config.git" 
 if [ -f ~/.bash_aliases ] ; then source ~/.bash_aliases ; fi
 if [ -f $XDG_CONFIG_HOME/bash_aliases ] ; then source $XDG_CONFIG_HOME/bash_aliases ; fi
 
