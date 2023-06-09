@@ -5,8 +5,12 @@
 export EDITOR=vim
 export BROWSER=brave
 LANG=en_US.UTF-8
-HISTSIZE=-1
-PS1='[\u@\h \W]\$ '
+HISTSIZE=1000000000
+if [[ $(basename $SHELL) = 'bash' ]] ; then 
+    PS1='[\u@\h \W]\$ '
+elif [[ $(basename $SHELL) = 'zsh' ]] ; then 
+    PS1='%n@%m %1~ %# '
+fi
 
 # IF NOT RUNNING INTERACTIVELY, DON'T DO ANYTHING
 [[ $- != *i* ]] && return

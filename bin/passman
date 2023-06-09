@@ -4,9 +4,14 @@
 DBNAME=".db.kdbx"
 REMOTEDIR="tk:~"
 LOCALDIR="$HOME/.password-store"
+if [[ $(uname) = 'Darwin' ]] ; then 
+    KEEPASSBIN='open'
+elif [[ $(uname) = 'Linux' ]] ; then 
+    KEEPASSBIN='keepassxc'
+fi
 
 mkdir -p ${LOCALDIR}
 scp ${REMOTEDIR}/${DBNAME} ${LOCALDIR}
-keepassxc ${LOCALDIR}/${DBNAME}
+$KEEPASSBIN ${LOCALDIR}/${DBNAME}
 scp ${LOCALDIR}/${DBNAME} ${REMOTEDIR}
 
