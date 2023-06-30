@@ -5,7 +5,7 @@ DBNAME=".db.kdbx"
 REMOTEDIR="tk:~"
 LOCALDIR="$HOME/.password-store"
 if [[ $(uname) = 'Darwin' ]] ; then 
-    KEEPASSBIN='open'
+    KEEPASSBIN='open -W'
 elif [[ $(uname) = 'Linux' ]] ; then 
     KEEPASSBIN='keepassxc'
 fi
