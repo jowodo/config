@@ -5,8 +5,9 @@
 export EDITOR=vim
 export BROWSER=brave
 LANG=en_US.UTF-8
-HISTSIZE=-1
-PS1='[\u@\h \W]\$ '
+HISTSIZE=1000000000
+[ "$(basename $SHELL)" = "bash" ] && export PS1='[\u@\h \W]\$ '
+[ "$(basename $SHELL)" = "zsh"  ] && export PS1='%n@%m %1~ %# '
 
 # IF NOT RUNNING INTERACTIVELY, DON'T DO ANYTHING
 [[ $- != *i* ]] && return
@@ -16,16 +17,16 @@ set -o vi
 
 # SOURCE ALIASES AND FUNCTIONS
 export XDG_CONFIG_HOME=~/.config.git
-if [ -f ~/.bash_aliases ] ; then source ~/.bash_aliases ; fi
-if [ -f $XDG_CONFIG_HOME/bash/bash_aliases ] ; then source $XDG_CONFIG_HOME/bash/bash_aliases ; fi
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases 
+[ -f $XDG_CONFIG_HOME/bash/bash_aliases ] && source $XDG_CONFIG_HOME/bash/bash_aliases 
+#
+[ -f ~/.bash_functions ] && source ~/.bash_functions 
+[ -f $XDG_CONFIG_HOME/bash/bash_functions ] && source $XDG_CONFIG_HOME/bash/bash_functions 
 
-if [ -f ~/.bash_functions ] ; then source ~/.bash_functions ; fi
-if [ -f $XDG_CONFIG_HOME/bash/bash_functions ] ; then source $XDG_CONFIG_HOME/bash/bash_functions ; fi
-
-if [ -f ~/.bash_local ] ; then source ~/.bash_local; fi
-if [ -f $XDG_CONFIG_HOME/bash/bash_local ] ; then source $XDG_CONFIG_HOME/bash/bash_local; fi
+[ -f ~/.bash_local ] && source ~/.bash_local
+[ -f $XDG_CONFIG_HOME/bash/bash_local ] && source $XDG_CONFIG_HOME/bash/bash_local
 
 PATH=$PATH:~/.local/bin
 PATH=$PATH:$XDG_CONFIG_HOME/bin
 
-if [ -f /home/pur/.icd/icd ] ; then source /home/pur/.icd/icd ; fi
+[ -f /home/pur/.icd/icd ] && source /home/pur/.icd/icd 
