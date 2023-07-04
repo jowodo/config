@@ -4,6 +4,7 @@
 CORES=4
 RAM=4G
 OS="nixos" 
+ISODIR=/home/share/isodir
 # 
 ## Commandline parameters
 help()
@@ -16,6 +17,7 @@ help()
     [ -n | --new-install ]   \n
     [ -r | --ram <ram in MB ] \n
     [ -o | --os {a[rch]|c[ent[os7]]|k[ub[untu]]|n[ix[os]]|o[[pen]bsd]|w[in[10]]} ] \n
+          default: '$OS' \n
     [ -h | --help ] 
     '''
     echo -e $HELPTEXT
@@ -70,28 +72,28 @@ done
 
 if [[ "$OS" == "archos" || "$OS" == "arch" || "$OS" == "a" ]] 
 then 
-    VIRTHD=/home/pur/Doc/Computer/Distros/archbox.qcow2
-    ISO=/home/pur/Doc/Computer/Distros/archlinux-2022.09.03-x86_64.iso
+    VIRTHD=$ISODIR/virthd/archbox.qcow2
+    ISO=$ISODIR/archlinux-2022.09.03-x86_64.iso
 elif [[ "$OS" == "centos7" || "$OS" == "cent"|| "$OS" == "c"  ]] 
 then 
-    VIRTHD=/home/share/centos7.qcow2
+    VIRTHD=$ISODIR/virthd/centos7.qcow2
     ISO=no-iso
 elif [[ "$OS" == "kubuntu" || "$OS" == "kub"|| "$OS" == "k"  ]] 
 then 
-    VIRTHD=/home/pur/Doc/Computer/Distros/kubuntu.qcow2
-    ISO=/home/pur/Doc/Computer/Distros/kubuntu-22.10-desktop-amd64.iso
+    VIRTHD=$ISODIR/virthd/kubuntu.qcow2
+    ISO=$ISODIR/kubuntu-22.10-desktop-amd64.iso
 elif [[ "$OS" == "nixos" || "$OS" == "nix" || "$OS" == "n" ]]
 then 
-    VIRTHD=/home/pur/Doc/Computer/Distros/nixos.qcow2
-    ISO=/home/pur/Doc/Computer/Distros/nixos-minimal-22.11.2155.f413457e0dd-x86_64-linux.iso
+    VIRTHD=$ISODIR/virthd/nixos.qcow2
+    ISO=$ISODIR/nixos-minimal-22.11.2155.f413457e0dd-x86_64-linux.iso
 elif [[ "$OS" == "openbsd" || "$OS" == "obsd" || "$OS" == "o" ]]
 then 
-    VIRTHD=/home/pur/Doc/Computer/Distros/obsdbox.qcow2
-    ISO=/home/pur/Doc/Computer/Distros/openbsd_install70.iso
+    VIRTHD=$ISODIR/virthd/obsdbox.qcow2
+    ISO=$ISODIR/openbsd_install70.iso
 elif [[ "$OS" == "win10" || "$OS" == "win" || "$OS" == "w" ]]
 then 
-    VIRTHD=/home/share/win10.qcow2
-    ISO=/home/pur/Doc/Computer/Distros/Win10_21H1_EnglishInternational_x64.iso
+    VIRTHD=$ISODIR/virthd/win10.qcow2
+    ISO=$ISODIR/Win10_21H1_EnglishInternational_x64.iso
 fi 
 #
 if [ $REINSTALL ] 
