@@ -55,7 +55,6 @@ alias li="libreoffice"
 alias py="python"
 alias py2="python2"
 alias ytdl="youtube-dl -x --no-mtime --audio-format \"mp3\" -o '~/Music/%(title)s.%(ext)s' "
-alias wldl="wget --directory-prefix=/home/share/Music/ --recursive --no-directories --level=1 --accept '*.mp3' https://wlankabel.at/ytdl/downloads 2>&1 >/dev/null | grep mp3$"
 
 #special RROG
 alias fet="figlet"
