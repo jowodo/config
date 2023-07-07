@@ -3,7 +3,7 @@
 ## DEFAULTS 
 CORES=4
 RAM=4G
-OS="nixos" 
+OS="kubuntu" 
 ISODIR=/home/share/isodir
 # 
 ## Commandline parameters
@@ -14,18 +14,20 @@ help()
     [ -c | --cores <cores> ] \n
     [ -d | --drive <drive> ] \n
     [ -i | --iso <iso-file ] \n
+    [ -m | --mount ] \n 
     [ -n | --new-install ]   \n
-    [ -r | --ram <ram in MB ] \n
     [ -o | --os {a[rch]|c[ent[os7]]|k[ub[untu]]|n[ix[os]]|o[[pen]bsd]|w[in[10]]} ] \n
+    [ -r | --ram <ram in MB ] \n
           default: '$OS' \n
+    [ -u | --umount ] \n
     [ -h | --help ] 
     '''
     echo -e $HELPTEXT
     exit 2
 }
-SHORT=v:,m:,d,c,h
-SHORT=c:,d:,i:,o:,r:,n,h
-LONG=cores:,drive:,iso:,os:,ram:,new,cd,help
+#SHORT=v:,m:,d,c,h
+SHORT=c:,d:,i:,o:,r:,m,u,n,h
+LONG=cores:,drive:,iso:,os:,ram:,mount,unmount,new,cd,help
 OPTS=$(getopt -a --options $SHORT --longoptions $LONG -- "$@")
 eval set -- "$OPTS"
 while :
@@ -43,6 +45,14 @@ do
     -i | --iso )
       ISO="-cdrom $2 -boot once=d"
       shift 2
+      ;;
+    -u | --unmount )
+      UNMOUNT=1
+      shift;
+      ;;
+    -m | --mount )
+      MOUNT=1
+      shift;
       ;;
     -n | --new )
       REINSTALL=1
@@ -96,7 +106,15 @@ then
     ISO=$ISODIR/Win10_21H1_EnglishInternational_x64.iso
 fi 
 #
-if [ $REINSTALL ] 
+if [ $MOUNT ] 
+then 
+    guestmount --add $VIRTHD --inspector --ro /home/share/isodir/mnt/
+    exit 0
+elif [ $UNMOUNT ]
+then 
+    guestunmount /home/share/isodir/mnt/
+    exit 0
+elif [ $REINSTALL ] 
 then 
     if ! [ -f $VIRTHD ] ; then 
         qemu-img create -f qcow2 $VIRTHD 20G
