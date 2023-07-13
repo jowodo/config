@@ -4,6 +4,7 @@
 URL="https://wlankabel.at/ytdl/downloads"
 OUTDIR="/home/share/Music" 
 FILTER='2>&1 >/dev/null | grep mp3$' 
+if [[ $(uname) == "Darwin" ]] ; then OUTDIR="/Users/Shared/Music" ; fi 
 
 ## Commandline parameters
 help()
