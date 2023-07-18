@@ -18,13 +18,13 @@ set -o vi
 # SOURCE ALIASES AND FUNCTIONS
 export XDG_CONFIG_HOME=~/.config.git
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases 
-[ -f $XDG_CONFIG_HOME/bash/bash_aliases ] && source $XDG_CONFIG_HOME/bash/bash_aliases 
+[ -f $XDG_CONFIG_HOME/shell/bash_aliases ] && source $XDG_CONFIG_HOME/shell/bash_aliases 
 #
 [ -f ~/.bash_functions ] && source ~/.bash_functions 
-[ -f $XDG_CONFIG_HOME/bash/bash_functions ] && source $XDG_CONFIG_HOME/bash/bash_functions 
+[ -f $XDG_CONFIG_HOME/shell/bash_functions ] && source $XDG_CONFIG_HOME/shell/bash_functions 
 
 [ -f ~/.bash_local ] && source ~/.bash_local
-[ -f $XDG_CONFIG_HOME/bash/bash_local ] && source $XDG_CONFIG_HOME/bash/bash_local
+[ -f $XDG_CONFIG_HOME/shell/bash_local ] && source $XDG_CONFIG_HOME/shell/bash_local
 
 PATH=$PATH:~/.local/bin
 PATH=$PATH:$XDG_CONFIG_HOME/bin
