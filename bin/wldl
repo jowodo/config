@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# DEFAULTS
+URL="https://wlankabel.at/ytdl/downloads"
+OUTDIR="/home/share/Music" 
+FILTER='2>&1 >/dev/null | grep mp3$' 
+if [[ $(uname) == "Darwin" ]] ; then OUTDIR="/Users/Shared/Music" ; fi 
+
+## Commandline parameters
+help()
+{
+    HELPTEXT='''
+    USAGE: $0 \\\n
+    [ -a | --archive ] \n
+    [ -h | --help ] 
+    '''
+    echo -e $HELPTEXT
+    exit 2
+}
+SHORT=a,h
+LONG=archive,help
+OPTS=$(getopt -a --options $SHORT --longoptions $LONG -- "$@")
+eval set -- "$OPTS"
+while :
+do
+  case "$1" in
+    -a | --archive )
+      URL="https://wlankabel.at/ytdl/archive"
+      shift;
+      ;;
+    -h | --help)
+      help 
+      ;;
+    --)
+      shift;
+      break
+      ;;
+    *)
+      echo "Unexpected option: $1"
+      help
+      ;;
+  esac
+done
+
+wget --directory-prefix=$OUTDIR \
+    --recursive \
+    --continue \
+    --no-directories \
+    --level=1 \
+    --accept '*.mp3' \
+    $URL 2>&1 >/dev/null | grep 'mp3$' 
