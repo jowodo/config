@@ -232,7 +232,7 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 # personal keybindings
 bindsym $mod+b exec "brave"
 #bindsym $mod+v exec "vlc ~/Music"
-bindsym $mod+v exec "pushd ~/Music/ && ls -t ~/Music/ | xargs -d '\n' vlc &" 
+bindsym $mod+v exec "pushd ~/Music/ && ls -t --time=creation ~/Music/ | xargs -d '\n' vlc &" 
 bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+m exec "thunderbird"
 bindsym $mod+x exec "signal-desktop"
@@ -257,7 +257,9 @@ new_float none
 new_float normal 
 
 # meta 
-bindsym $meta+l exec "i3lock -i ~/Pics/lock.png"
+#bindsym $meta+l exec "i3lock -i ~/Pics/lock.png"
+# use i3lock-color https://github.com/Raymo111/i3lock-color
+bindsym $meta+l exec "i3lock -k -i ~/Pics/wp2.png --time-color=ffffffff --time-pos='800:540' --date-color=ffffffff" 
 bindsym $meta+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym $meta+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym $meta+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
