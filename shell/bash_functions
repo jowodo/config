@@ -81,9 +81,9 @@ function gtar {
 function gmount 
 {
     USAGE='''
-\tUSAGE: $0 image-file [ mount-path ]
-        \t\t image-file\t qcow2-image, others might work
-        \t\t mount-path\t default: /home/share/isodir/mnt
+\tUSAGE: $0 image-file [ mount-path ]\n
+        \t\t image-file\t qcow2-image, others might work\n
+        \t\t mount-path\t default: /home/share/isodir/mnt\n
     '''
     if [ $# -lt 1 ] ; then 
         echo -ne $USAGE
@@ -103,8 +103,8 @@ function gmount
 function gumount 
 {
     USAGE='''
-\tUSAGE: $0 [ mountpoint ] 
-        \t\t mountpoint\t default: /home/share/isodir/mnt
+\tUSAGE: $0 [ mountpoint ]\n
+        \t\t mountpoint\t default: /home/share/isodir/mnt\n
     '''
     if [ $# -gt 1 ] ; then 
         echo -ne $USAGE
