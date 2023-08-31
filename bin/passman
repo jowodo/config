@@ -11,7 +11,7 @@ elif [[ $(uname) = 'Linux' ]] ; then
 fi
 
 mkdir -p ${LOCALDIR}
-scp -v ${REMOTEDIR}/${DBNAME} ${LOCALDIR}
+scp ${REMOTEDIR}/${DBNAME} ${LOCALDIR}
 $KEEPASSBIN ${LOCALDIR}/${DBNAME}
-scp -v ${LOCALDIR}/${DBNAME} ${REMOTEDIR}
+scp ${LOCALDIR}/${DBNAME} ${REMOTEDIR}
 
