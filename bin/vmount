@@ -1,0 +1,36 @@
+USAGE='''
+USAGE: $0 image-file [ mount-path ]\n
+    \t image-file\t qcow2-image, others might work\n
+    \t mount-path\t default: /home/share/isodir/mnt\n
+''';
+
+# guestmount dependency
+# exit if 'guestmount' executable is 
+which guestmount &> /dev/null
+if [ $? != 0 ] ; then 
+    echo -ne "ERROR: guestmount not found\n"
+    echo -ne "\t install libguestfs\n" 
+    exit 1
+fi 
+
+if [ $# -lt 1 ]; then
+    echo -ne $USAGE;
+    exit 1;
+else
+    if [[ $1 == "-h" || $1 == "--help" ]]; then 
+        echo -ne $USAGE;
+        exit 1;
+    fi
+    if [ $# -gt 2 ]; then
+        echo -ne $USAGE;
+        exit 1;
+    else
+        if [ $# -eq 1 ]; then
+            MOUNT_PATH="/home/share/isodir/mnt";
+        else
+            MOUNT_PATH="$2";
+        fi;
+    fi;
+fi;
+IMAGE_FILE="$1";
+guestmount --add $IMAGE_FILE --inspector --ro $MOUNT_PATH
