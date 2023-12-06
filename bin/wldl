@@ -19,7 +19,9 @@ help()
 }
 SHORT=a,h
 LONG=archive,help
-OPTS=$(getopt -a --options $SHORT --longoptions $LONG -- "$@")
+if [[ $(uname) != "Darwin" ]] 
+then 
+    OPTS=$(getopt -a --options $SHORT --longoptions $LONG -- "$@")
 eval set -- "$OPTS"
 while :
 do
@@ -35,12 +37,16 @@ do
       shift;
       break
       ;;
+    d)
+      ;;
     *)
       echo "Unexpected option: $1"
       help
       ;;
   esac
 done
+
+fi
 
 wget --directory-prefix=$OUTDIR \
     --recursive \
