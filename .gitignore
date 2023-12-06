@@ -1,7 +1,10 @@
 .mono
+calcurse
+cni
 BraveSoftware
 GIMP
 KeePass
+kdeglobals
 QtProject.conf
 Signal
 gtk-2.0
@@ -12,6 +15,7 @@ keepassxc
 kolourpaintrc
 ktorrentrc
 libreoffice
+mc
 pulse
 sakura
 vlc
