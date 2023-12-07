@@ -116,3 +116,5 @@ alt - x : open -a /Applications/Signal.app
 alt - m : open -a /Applications/Thunderbird.app
 alt - v : open -a /Applications/VLC.app
 alt - c : opan -a Calendar
+alt - z : open -A Slack
+alt - p : ~/.local/bin/passman
