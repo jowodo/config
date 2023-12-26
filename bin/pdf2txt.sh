@@ -1,11 +1,11 @@
 #!/bin/bash 
 #
 
-if [[ $# -ne 1 ]]
-then
-	echo "USAGE: $(basename $0) path_to_file.pdf"
-	exit 1
-fi
+
+USAGE="USAGE: $(basename $0) path_to_file.pdf"
+if [[ $# -ne 1 ]] ; then echo "$USAGE"; exit 1; fi
+if [[ $1 == "-"* ]] ; then echo "$USAGE"; exit 1; fi 
+if [[ ! -f $1 ]] ; then echo "File $1 does not exist! Exiting ..."; exit 1 ; fi
 
 INFILE=$(realpath $1) 
 BASENAME=$(basename $INFILE .pdf)
