@@ -78,3 +78,14 @@ function gtar {
     fi
 }
 
+### SUMOUNT 
+function au { 
+    if [[ $# -eq 0 ]] ; then 
+        device=$(df -ha| grep systemd| grep run | tr -s ' ' | cut -d' ' -f6 | dmenu -l 2 -b -i)
+        sudo systemd-mount -u $device
+    elif [[ $# -eq 1 ]] ; then 
+        sudo systemd-mount -u $1
+    else 
+        echo "ERROR: too many arguments"
+    fi
+}
