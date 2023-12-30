@@ -4,14 +4,16 @@
 DBNAME=".db.kdbx"
 REMOTEDIR="tk:~"
 LOCALDIR="$HOME/.password-store"
-if [[ $(uname) = 'Darwin' ]] ; then 
-    KEEPASSBIN='open -W'
-elif [[ $(uname) = 'Linux' ]] ; then 
-    KEEPASSBIN='keepassxc'
-fi
 
+# copy from remote
 mkdir -p ${LOCALDIR}
 scp ${REMOTEDIR}/${DBNAME} ${LOCALDIR}
-$KEEPASSBIN ${LOCALDIR}/${DBNAME}
+# open 
+if [[ $(uname) = 'Darwin' ]] ; then 
+    open -a KeePassXC.app -W # ${LOCALDIR}/${DBNAME}
+elif [[ $(uname) = 'Linux' ]] ; then 
+    keepassxc ${LOCALDIR}/${DBNAME}
+fi
+# copy to remote
 scp ${LOCALDIR}/${DBNAME} ${REMOTEDIR}
 
