@@ -10,15 +10,15 @@ ISODIR=/home/share/isodir
 help()
 {
     HELPTEXT='''
-    USAGE: $0 \\\n
+    USAGE: '$0' \\\n
     [ -c | --cores <cores> ] \n
     [ -d | --drive <drive> ] \n
     [ -i | --iso <iso-file ] \n
     [ -m | --mount ] \n 
     [ -n | --new-install ]   \n
     [ -o | --os {a[rch]|c[ent[os7]]|k[ub[untu]]|n[ix[os]]|o[[pen]bsd]|w[in[10]]} ] \n
-    [ -r | --ram <ram in MB ] \n
           default: '$OS' \n
+    [ -r | --ram <ram in MB ] \n
     [ -u | --umount ] \n
     [ -h | --help ] 
     '''
@@ -79,7 +79,12 @@ do
       ;;
   esac
 done
-
+# CHECK IF A NEW VIRTUAL DRIVE NEEDS TO BE CREATED
+if [[ -v DRIVE && ! -f $DRIVE ]]
+then 
+    NEWDRIVE=1
+fi
+#
 if [[ "$OS" == "archos" || "$OS" == "arch" || "$OS" == "a" ]] 
 then 
     VIRTHD=$ISODIR/virthd/archbox.qcow2
@@ -106,19 +111,45 @@ then
     ISO=$ISODIR/Win10_21H1_EnglishInternational_x64.iso
 fi 
 #
+if [ $NEWDRIVE ]
+then 
+    echo "Drive $DRIVE does not exist" 
+    echo -n "Do you want to create $DRIVE? [y/n] " 
+    read answer
+    if [[ $answer == y || $answer == yes || $answer == Y || $answer == Yes || $answer == YES ]]
+    then 
+        echo -n "How big should the virtual drive be maximal in GB? "
+        read size 
+        # CHECK IF SIZE IS A NUMBER
+        if [ -n "$size" ] && [ "$size" -eq "$size" ] 
+        then 
+            qemu-img create -f qcow2 $DRIVE ${size}G && VIRTHD=$DRIVE
+            echo -n "." && sleep 1 
+            echo -n "." && sleep 1 
+            echo -n "." && sleep 1 
+            echo " finished" 
+        else 
+            echo "$size is NOT a number! Aborting!" && exit 
+        fi 
+    else 
+        exit 0
+    fi 
+fi 
+#
 if [ $MOUNT ] 
 then 
-    guestmount --add $VIRTHD --inspector --ro /home/share/isodir/mnt/
+    mkdir -p $ISODIR/mnt
+    guestmount --add $VIRTHD --inspector --ro $ISODIR/mnt/
     exit 0
 elif [ $UNMOUNT ]
 then 
-    guestunmount /home/share/isodir/mnt/
+    guestunmount $ISODIR/mnt/
     exit 0
-elif [ $REINSTALL ] 
+elif [[ $REINSTALL -eq 1 || $NEWDRIVE -eq 1 ]] 
 then 
-    if ! [ -f $VIRTHD ] ; then 
-        qemu-img create -f qcow2 $VIRTHD 20G
-    fi
+#    if ! [ -f $VIRTHD ] ; then 
+#        qemu-img create -f qcow2 $VIRTHD 100G
+#    fi
     qemu-system-x86_64 -drive file=$VIRTHD -enable-kvm -m $RAM -smp $CORES -cdrom $ISO -boot once=d & 
 else 
     qemu-system-x86_64 -drive file=$VIRTHD -enable-kvm -m $RAM -smp $CORES  &
