@@ -237,6 +237,7 @@ bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+m exec "thunderbird"
 bindsym $mod+x exec "signal-desktop"
 bindsym $mod+y exec "signal-desktop"
+bindsym $mod+n exec --no-startup-id ~/.local/bin/tts.sh
 bindsym $mod+d exec "dict $(xclip -o ) 2>&1 | grep -A1 -e '1[.:] ' -e '2[.:] ' -e '3[.:] ' -e '4[.:] ' -e '(a)' -e '(b)' -e 'No def' | dmenu "
 bindsym $mod+Shift+d exec "dict $(xclip -o ) 2>&1 | grep -e '1[.:] ' -e '2[.:] ' -e '3[.:] ' -e '4[.:] ' -e '(a)' -e '(b)' -e 'No def' -A1 | dmenu -l 10"
 # to display multiple lines, but doesn't work because notify send needs ""
