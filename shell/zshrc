@@ -1,0 +1,12 @@
+HISTSIZE=1000000000
+export PS1='%n@%m %1~ %# '
+#
+export XDG_CONFIG_HOME=~/.config.git
+# SOURCE ALIASES AND FUNCTIONS
+[ -f $XDG_CONFIG_HOME/shell/zsh_aliases ] && source $XDG_CONFIG_HOME/shell/zsh_aliases 
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases 
+#
+[ -f $XDG_CONFIG_HOME/shell/zsh_functions ] && source $XDG_CONFIG_HOME/shell/zsh_functions 
+[ -f ~/.zsh_functions ] && source ~/.zsh_functions 
+
+[ -f ~/.zsh_local ] && source ~/.zsh_local
