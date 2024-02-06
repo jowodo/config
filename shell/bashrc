@@ -7,14 +7,15 @@ export PS1='[\u@\h \W]\$ '
 [[ $- != *i* ]] && return
 #
 export XDG_CONFIG_HOME=~/.config.git
-# SOURCE ALIASES AND FUNCTIONS
-[ -f $XDG_CONFIG_HOME/shell/bash_aliases ] && source $XDG_CONFIG_HOME/shell/bash_aliases 
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases 
-#
-[ -f $XDG_CONFIG_HOME/shell/bash_functions ] && source $XDG_CONFIG_HOME/shell/bash_functions 
-[ -f ~/.bash_functions ] && source ~/.bash_functions 
-#
-[ -f ~/.bash_local ] && source ~/.bash_local
+[ -f $XDG_CONFIG_HOME/shell/shellrc ] && . XDG_CONFIG_HOME/shell/shellrc
+# SOURCE ALIASES 
+[ -f $XDG_CONFIG_HOME/shell/bash_aliases ] && . $XDG_CONFIG_HOME/shell/bash_aliases 
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases 
+# SOURCE FUNCTIONS
+[ -f $XDG_CONFIG_HOME/shell/bash_functions ] && . $XDG_CONFIG_HOME/shell/bash_functions 
+[ -f ~/.bash_functions ] && . ~/.bash_functions 
+# SOURCE LOCAL CONF
+[ -f ~/.bash_local ] && . ~/.bash_local
 #
 # ICD
-[ -f /home/pur/.icd/icd ] && source /home/pur/.icd/icd 
+[ -f /home/pur/.icd/icd ] && . /home/pur/.icd/icd 
