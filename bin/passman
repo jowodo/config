@@ -11,7 +11,7 @@ scp ${REMOTEDIR}/${DBNAME} ${LOCALDIR}
 # open 
 if [[ $(uname) = 'Darwin' ]] ; then 
     open -a KeePassXC.app -W # ${LOCALDIR}/${DBNAME}
-elif [[ $(uname) = 'Linux' ]] ; then 
+elif [[ $(uname) = 'Linux' || $(uname) = 'OpenBSD' ]] ; then 
     keepassxc ${LOCALDIR}/${DBNAME}
 fi
 # copy to remote
