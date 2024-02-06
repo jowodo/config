@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 USAGE='''
 USAGE: $0 image-file [ mount-path ]\n
     \t image-file\t qcow2-image, others might work\n

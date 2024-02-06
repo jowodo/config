@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 curkb=$(setxkbmap -query | grep layout | awk '{print$2}')
 us="us"
 langs=("us" "de" ) # "ak")

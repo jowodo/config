@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash
 # wraper script that keeps keepass storage up to date
 #
 DBNAME=".db.kdbx"

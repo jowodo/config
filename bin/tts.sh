@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 TTSCMD="festival --pipe --tts"
 xsel | $TTSCMD | mpv
