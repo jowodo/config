@@ -78,41 +78,14 @@ function gtar {
     fi
 }
 
-function gmount 
-{
-    USAGE='''
-\tUSAGE: $0 image-file [ mount-path ]\n
-        \t\t image-file\t qcow2-image, others might work\n
-        \t\t mount-path\t default: /home/share/isodir/mnt\n
-    '''
-    if [ $# -lt 1 ] ; then 
-        echo -ne $USAGE
-        return 1;
-    elif [ $# -gt 2 ] ; then
-        echo -ne $USAGE
-        return 1;
-    elif [ $# -eq 1 ] ; then 
-        MOUNT_PATH="/home/share/isodir/mnt"
-    else
-        MOUNT_PATH="$2"
+### SUMOUNT 
+function au { 
+    if [[ $# -eq 0 ]] ; then 
+        device=$(df -ha| grep systemd| grep run | tr -s ' ' | cut -d' ' -f6 | dmenu -l 2 -b -i)
+        sudo systemd-mount -u $device
+    elif [[ $# -eq 1 ]] ; then 
+        sudo systemd-mount -u $1
+    else 
+        echo "ERROR: too many arguments"
     fi
-    IMAGE_FILE="$1"
-    guestmount --add $IMAGE_FILE --inspector --ro $MOUNT_PATH
-}
-
-function gumount 
-{
-    USAGE='''
-\tUSAGE: $0 [ mountpoint ]\n
-        \t\t mountpoint\t default: /home/share/isodir/mnt\n
-    '''
-    if [ $# -gt 1 ] ; then 
-        echo -ne $USAGE
-        return 1;
-    elif [ $# -eq 0 ] ; then 
-        MOUNTPOINT='/home/share/isodir/mnt/'
-    else
-        MOUNTPOINT=$1
-    fi
-    guestunmount $MOUNTPOINT
 }

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+suffix=tar.bz2
+folderpath=$(pwd|sed "s,/,_,g")
+host=$(hostname)
+filename=$host-$folderpath
+dirname=$(basename $(pwd))
+
+cd ..
+tar caf ${filename}.${suffix} ${dirname}
+scp ${filename}.${suffix} tk:~/bkp
+rm ${filename}.${suffix}
+

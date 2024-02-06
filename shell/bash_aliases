@@ -1,67 +1,10 @@
-#
-# ~/.bash_aliases
-#
-
+# GNU NAVIGATION
 alias ls='ls --color=auto --group-directories-first -F'
 alias lsn="ls --color=no -F"
 alias grep="grep --color=auto"
-
-#PROGRAMS
-alias e="evince $1 2> /dev/null "
-alias z="zathura $1 2> /dev/null"
-alias fire="firefox 2> /dev/null &"
-alias gp="gnuplot"
-alias via="vim $XDG_CONFIG_HOME/shell/bash_aliases"
-alias vif="vim $XDG_CONFIG_HOME/shell/bash_functions"
-alias vis="vim ~/.ssh/config"
-alias vir="vim $XDG_CONFIG_HOME/shell/bashrc"
-alias vil="vim ~/.bash_local"
-alias vii="vim $XDG_CONFIG_HOME/i3/config"
-alias viv="vim ~/.vimrc"
-alias sus="source $XDG_CONFIG_HOME/shell/bashrc "
-
-
-###===System===###
-alias pu="ping -c 2 bestoked.at"
-#reactivate pointing stick after sleep/hibernation
+# INPUT
 alias mouse="sudo modprobe -r psmouse && sudo modprobe psmouse && sleep 1 && xinput set-prop 13 339 1"
 alias accel="xinput set-prop 13 339 1"
-
-#NAVIATION
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias rm="rm -i"
-alias mv="mv -i"
-alias cp="cp -iv"
-alias l="ls -lh"
-alias duh="du -hd 1  | sort -h"
-alias ll="ls -l"
-alias lash="ls -lash"
-
-#BACKUP
-
-#DOCUMENTS
-alias d.="dolphin . &> /dev/null &"
-alias v.="vlc . &> /dev/null &"
-alias v="vlc"
-
-alias ohrwurm="vim ~/Music/Noten/ohrwurm.txt"
-
-#PROGRAMS
-
-alias gp="gnuplot"
-alias li="libreoffice"
-alias py="python"
-alias py2="python2"
-alias ytdl="youtube-dl -x --no-mtime --audio-format \"mp3\" -o '~/Music/%(title)s.%(ext)s' "
-
-#special RROG
-alias fet="figlet"
-alias fett="banner"
-alias hamsar="py3 ~/Code/Python/Hamsar/Hamsar2.2/hams.py"
-alias hams="py3 ~/Code/Python/Hamsar/Hamsar2.2/hams.py"
-alias hams="cd ~/Code/Python/Hamsar/Hamsar2.2/"
 
 #test
 alias mic-test="arecord -vv -f dat /dev/null"
@@ -71,43 +14,25 @@ alias x="startx && reset"
 alias i3="startx /usr/bin/i3"
 alias kde="startx /usr/bin/startplasma-x11"
 alias bigfont="setfont sun12x22"
-
-#often used
-alias de="setxkbmap de"
-alias us="setxkbmap us"
 #alias date="date +'%a %d %b %Y %H:%M:%S %Z'"
-#alias since="/usr/bin/date && ps -eo pid,tty,start,cmd | grep -i $1"
+alias cl3="cal -3"
+
+# CONNECTION
 alias wifi="sudo systemctl restart netctl-auto@wlp2s0.service; rfkill"
-#alias getconf="cd /home/pur/Documents/Computer/Config_files.git && git pull && source ~/.bashrc && cd -"
-#alias gitconf="cd /home/pur/Documents/Computer/Config_files.git && git add * && git commit && git push && source ~/.bashrc && cd - "
 alias bt="rfkill unblock bluetooth && sudo systemctl restart bluetooth && bluetoothctl" # power on"
 alias btcl="bluetoothctl"
 alias btoff="sudo systemctl stop bluetooth* && rfkill block bluetooth"
-alias td="termdown"
 alias todo="vim ~/.todo.md"
 alias vv="vimiv"
-alias cl3="cal -3"
-alias ta="tmux attach"
-
-alias smount="sudo systemd-mount --owner=$USER"
-alias sumount="sudo systemd-mount -u"
-alias hibernate="sudo systemctl hibernate"
-alias suspend="sudo systemctl suspend"
-alias book="vim ~/.books.md"
-alias idee="vim ~/.ideas"
-alias links="vim ~/.links"
-alias note="vim ~/.note"
-alias learn="echo && date +'%T' && date --date='+25min' +'%T' && sleep 25m && vlc & "
-alias ii="icd icd"
-
 #VPN
 alias vpn="f5fpc -s -t vpn.univie.ac.at -u a1301163"
 alias vpni="f5fpc -i"
 alias vpno="f5fpc -o"
-alias ait="rsync -av --del"
-alias icd="icd -v"
-alias glog="git log --graph --oneline"
-alias q=exit
 
-alias win7="qemu-system-x86_64 -drive file=/home/pur/Doc/Computer/Distros/windows7.img,format=qcow2 -enable-kvm -m 4G & echo 'ctrl+alt+g to detach mouse//ctrl+alt+f fullscreen'"
-alias note="echo '\n' >> ~/.note && date +%Y.%m.%d-%H:%M:%S >> ~/.note && echo '===================' >> ~/.note && vim '+normal G' ~/.note"
+# POWER 
+alias smount="sudo systemd-mount --owner=$USER"
+alias sumount="sudo systemd-mount -u"
+alias hibernate="sudo systemctl hibernate"
+alias suspend="sudo systemctl suspend"
+alias ii="icd icd"
+

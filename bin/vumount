@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+USAGE='''
+USAGE: $0 [ mountpoint ]\n
+    \t mountpoint\t default: /home/share/isodir/mnt\n
+'''
+
+# guestmount dependency
+# exit if 'guestmount' executable is 
+which guestmount &> /dev/null
+if [ $? != 0 ] ; then 
+    echo -ne "ERROR: guestmount not found"
+    echo -ne "\t install libguestfs" 
+fi 
+
+if [ $# -gt 1 ] ; then 
+    echo -ne $USAGE
+    exit 1;
+elif [[ $1 == '-h' || $1 == '--help' ]]; then 
+    echo -ne $USAGE
+    exit 1;
+elif [ $# -eq 0 ] ; then 
+    MOUNTPOINT='/home/share/isodir/mnt/'
+else
+    MOUNTPOINT=$1
+fi
+guestunmount $MOUNTPOINT
