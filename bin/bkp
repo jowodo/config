@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash
 
 suffix=tar.bz2
 folderpath=$(pwd|sed "s,/,_,g")

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 split=2
 lowfactor=4
 min=0.1

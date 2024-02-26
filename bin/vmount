@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
 USAGE="""
 USAGE: $(basename $0) image-file [ mount-path ]\n
+>>>>>>> d8a535659fe7cadf11dffab87eeb68156ce273eb
     \t image-file\t qcow2-image, others might work\n
     \t mount-path\t default: /home/share/isodir/mnt\n
 """;

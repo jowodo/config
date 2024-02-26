@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash
 #
 ## DEFAULTS 
 CORES=4

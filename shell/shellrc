@@ -1,0 +1,18 @@
+export EDITOR=vim
+export BROWSER=brave
+LANG=en_US.UTF-8
+# VI CONTROL IN SHELL
+set -o vi
+#
+export XDG_CONFIG_HOME=~/.config.git
+# SOURCE ALIASES AND FUNCTIONS
+[ -f $XDG_CONFIG_HOME/shell/shell_aliases ] && . $XDG_CONFIG_HOME/shell/shell_aliases 
+[ -f ~/.shell_aliases ] && . ~/.shell_aliases 
+#
+[ -f $XDG_CONFIG_HOME/shell/shell_functions ] && . $XDG_CONFIG_HOME/shell/shell_functions 
+[ -f ~/.shell_functions ] && . ~/.shell_functions 
+
+[ -f ~/.shell_local ] && . ~/.shell_local
+
+PATH=$PATH:~/.local/bin
+PATH=$PATH:$XDG_CONFIG_HOME/bin

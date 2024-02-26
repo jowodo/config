@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 USAGE='''
 USAGE: $0 [ mountpoint ]\n
     \t mountpoint\t default: /home/share/isodir/mnt\n
