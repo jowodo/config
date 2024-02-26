@@ -1,8 +1,8 @@
-USAGE='''
-USAGE: $0 image-file [ mount-path ]\n
+USAGE="""
+USAGE: $(basename $0) image-file [ mount-path ]\n
     \t image-file\t qcow2-image, others might work\n
     \t mount-path\t default: /home/share/isodir/mnt\n
-''';
+""";
 
 # guestmount dependency
 # exit if 'guestmount' executable is 
