@@ -21,7 +21,6 @@ alias cl3="cal -3"
 alias wifi="sudo systemctl restart netctl-auto@wlp2s0.service; rfkill"
 alias bt="rfkill unblock bluetooth && sudo systemctl restart bluetooth && bluetoothctl" # power on"
 alias btcl="bluetoothctl"
-<<<<<<< HEAD
 alias btoff="sudo systemctl stop bluetooth* && rfkill block bluetooth && pkill blueman-applet"
 alias td="termdown"
 alias todo="vim ~/.todo.md"
