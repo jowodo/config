@@ -20,6 +20,7 @@ alias gits="git status"
 alias gita="git add"
 alias gitc="git commit"
 alias gitm="git commit -m"
+function gitm () {	git commit -m "$@" }
 
 #NAVIATION
 alias ..="cd .."
