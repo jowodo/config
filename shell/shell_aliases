@@ -15,6 +15,12 @@ alias vii="vim ~/.config/i3/config"
 alias viv="vim ~/.vimrc"
 alias sus=". $XDG_CONFIG_HOME/shell/$(basename $SHELL)rc"
 
+# GIT 
+alias gits="git status"
+alias gita="git add"
+alias gitc="git commit"
+alias gitm="git commit -m"
+
 #NAVIATION
 alias ..="cd .."
 alias ...="cd ../.."
