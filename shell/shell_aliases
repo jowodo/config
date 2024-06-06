@@ -16,11 +16,13 @@ alias viv="vim ~/.vimrc"
 alias sus=". $XDG_CONFIG_HOME/shell/$(basename $SHELL)rc"
 
 # GIT 
-alias gits="git status"
-alias gitd="git diff"
 alias gita="git add"
 alias gitc="git commit"
+alias gitd="git diff"
+alias gith="git push"
+alias gitl="git pull"
 alias gitm="git commit -m"
+alias gits="git status"
 function gitm () {	git commit -m "$@" }
 
 #NAVIATION
