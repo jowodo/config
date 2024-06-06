@@ -109,12 +109,14 @@ fn - t : yabai -m window --toggle float;\
           yabai -m window --grid 8:8:1:1:6:5
 
 ######################################################################3########
-alt - t : open -a /Applications/Telegram.app
 alt - b : open -a /Applications/Brave\ Browser.app
 #alt - f : open -a /Applications/Firefox.app
-alt - x : open -a /Applications/Signal.app
-alt - m : open -a /Applications/Thunderbird.app
-alt - v : open -a /Applications/VLC.app
 alt - c : opan -a Calendar
-alt - z : open -a Slack.app
+alt - m : open -a /Applications/Thunderbird.app
+alt - o : open -a /Applications/Obsidian.app
+Obsidian not found
 alt - p : ~/.local/bin/passman
+alt - t : open -a /Applications/Telegram.app
+alt - v : open -a /Applications/VLC.app
+alt - x : open -a /Applications/Signal.app
+alt - z : open -a Slack.app
