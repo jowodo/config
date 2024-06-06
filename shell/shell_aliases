@@ -17,6 +17,7 @@ alias sus=". $XDG_CONFIG_HOME/shell/$(basename $SHELL)rc"
 
 # GIT 
 alias gits="git status"
+alias gitd="git diff"
 alias gita="git add"
 alias gitc="git commit"
 alias gitm="git commit -m"
