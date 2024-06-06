@@ -114,7 +114,6 @@ alt - b : open -a /Applications/Brave\ Browser.app
 alt - c : opan -a Calendar
 alt - m : open -a /Applications/Thunderbird.app
 alt - o : open -a /Applications/Obsidian.app
-Obsidian not found
 alt - p : ~/.local/bin/passman
 alt - t : open -a /Applications/Telegram.app
 alt - v : open -a /Applications/VLC.app
