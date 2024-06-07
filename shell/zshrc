@@ -12,3 +12,5 @@ export XDG_CONFIG_HOME=~/.config.git
 [ -f ~/.zsh_functions ] && . ~/.zsh_functions 
 
 [ -f ~/.zsh_local ] && . ~/.zsh_local
+
+bindkey '^R' history-incremental-search-backward
