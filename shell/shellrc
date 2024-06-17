@@ -16,3 +16,6 @@ export XDG_CONFIG_HOME=~/.config.git
 
 PATH=$PATH:~/.local/bin
 PATH=$PATH:$XDG_CONFIG_HOME/bin
+
+# TODO npath -n2 -d-,_ 
+#           \ -i ~/01_Documents/04_Work/02_onipa_books/01_asem.git # ~/01/04/02/01_asem.git
