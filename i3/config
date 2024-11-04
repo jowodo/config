@@ -209,12 +209,12 @@ exec ~/.fehbg
 bindsym $meta+x exec xkill
 
 # Screen shots
-bindsym Print exec "cd ~/Pics/2022/Screenshots/ && scrot" 
-#bindsym $mod+p exec "cd ~/Pics/2022/Screenshots/ && scrot" 
-bindsym $meta+Print exec "cd ~/Pics/2022/Screenshots && scrot --focused" # current window
-bindsym $mod+Shift+p exec "cd ~/Pics/2022/Screenshots && scrot --focused" # current window
-bindsym Ctrl+Print "cd ~/Pics/2022/Screenshots && exec scrot --select" # select rectangle interactively
-bindsym $mod+Print "cd ~/Pics/2022/Screenshots && exec scrot --multidispl" # all displays
+bindsym Print exec "cd ~/Pics/Screenshots/ && scrot" 
+#bindsym $mod+p exec "cd ~/Pics/Screenshots/ && scrot" 
+bindsym $meta+Print exec "cd ~/Pics/Screenshots && scrot --focused # current window"
+bindsym $mod+Shift+p exec "cd ~/Pics/Screenshots && scrot --focused # current window"
+bindsym Ctrl+Print exec "cd ~/Pics/Screenshots && exec scrot --select # select rectangle interactively"
+bindsym $mod+Print exec "cd ~/Pics/Screenshots && exec scrot --multidispl # all displays"
 
 # make gaps
 gaps inner 10

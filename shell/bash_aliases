@@ -2,21 +2,19 @@
 alias ls='ls --color=auto --group-directories-first -F'
 alias lsn="ls --color=no -F"
 alias grep="grep --color=auto"
+alias open="xdg-open"
 # INPUT
 alias mouse="sudo modprobe -r psmouse && sudo modprobe psmouse && sleep 1 && xinput set-prop 13 339 1"
 alias accel="xinput set-prop 13 339 1"
-
-#test
+# TEST
 alias mic-test="arecord -vv -f dat /dev/null"
-
-#temporary
+# TEMPORARY
 alias x="startx && reset"
 alias i3="startx /usr/bin/i3"
 alias kde="startx /usr/bin/startplasma-x11"
 alias bigfont="setfont sun12x22"
 #alias date="date +'%a %d %b %Y %H:%M:%S %Z'"
 alias cl3="cal -3"
-
 # CONNECTION
 alias wifi="sudo systemctl restart netctl-auto@wlp2s0.service; rfkill"
 alias bt="rfkill unblock bluetooth && sudo systemctl restart bluetooth && bluetoothctl" # power on"
@@ -29,11 +27,9 @@ alias vv="vimiv"
 alias vpn="f5fpc -s -t vpn.univie.ac.at -u a1301163"
 alias vpni="f5fpc -i"
 alias vpno="f5fpc -o"
-
 # POWER 
 alias smount="sudo systemd-mount --owner=$USER"
 alias sumount="sudo systemd-mount -u"
 alias hibernate="sudo systemctl hibernate"
 alias suspend="sudo systemctl suspend"
 alias ii="icd icd"
-
