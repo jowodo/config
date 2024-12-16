@@ -119,11 +119,15 @@ then
 elif [[ "$OS" == "rocky" || "$OS" == "r" ]]
 then 
     VIRTHD=$ISODIR/virthd/rocky.qcow2
-    ISO=$ISODIR/Rocky-9.5-x86_64-minimal.iso.part
+    ISO=$ISODIR/Rocky-9.5-x86_64-minimal.iso
 fi 
 #
-if [ $NEWDRIVE ]
+if [[ $NEWDRIVE || ! -f $VIRTHD ]]
 then 
+    if [[ ! -v DRIVE ]] 
+    then 
+        DRIVE=$VIRTHD
+    fi
     echo "Drive $DRIVE does not exist" 
     echo -n "Do you want to create $DRIVE? [y/n] " 
     read answer
