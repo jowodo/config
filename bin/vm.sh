@@ -12,11 +12,12 @@ help()
     HELPTEXT='''
     USAGE: '$0' \\\n
     [ -c | --cores <cores> ] \n
-    [ -d | --drive <drive> ] \n
+    [ -d | --drive <drive> ] (creates new if not exist)\n
     [ -i | --iso <iso-file ] \n
     [ -m | --mount ] \n 
     [ -n | --new-install ]   \n
-    [ -o | --os {a[rch]|c[ent[os7]]|k[ub[untu]]|n[ix[os]]|o[[pen]bsd]|w[in[10]]} ] \n
+    [ -o | --os {a[rch] | c[ent[os7]] | k[ub[untu]] | n[ix[os]] | o[[pen]bsd]
+                        | w[in[10]] | u[bu[ntu]] | r[ocky] } ] \n
           default: '$OS' \n
     [ -r | --ram <ram in MB ] \n
     [ -u | --umount ] \n
@@ -109,10 +110,24 @@ elif [[ "$OS" == "win10" || "$OS" == "win" || "$OS" == "w" ]]
 then 
     VIRTHD=$ISODIR/virthd/win10.qcow2
     ISO=$ISODIR/Win10_21H1_EnglishInternational_x64.iso
+elif [[ "$OS" == "ubuntu" || "$OS" == "ubu" || "$OS" == "u" ]]
+then 
+    VIRTHD=$ISODIR/virthd/ubuntu.qcow2
+    ISO=$ISODIR/ubuntu-20.04.6-live-server-amd64.iso
+    ISO=$ISODIR/ubuntu-22.04.5-live-server-amd64.iso
+    ISO=$ISODIR/kubuntu-22.10-desktop-amd64.iso
+elif [[ "$OS" == "rocky" || "$OS" == "r" ]]
+then 
+    VIRTHD=$ISODIR/virthd/rocky.qcow2
+    ISO=$ISODIR/Rocky-9.5-x86_64-minimal.iso
 fi 
 #
-if [ $NEWDRIVE ]
+if [[ $NEWDRIVE || ! -f $VIRTHD ]]
 then 
+    if [[ ! -v DRIVE ]] 
+    then 
+        DRIVE=$VIRTHD
+    fi
     echo "Drive $DRIVE does not exist" 
     echo -n "Do you want to create $DRIVE? [y/n] " 
     read answer
