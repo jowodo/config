@@ -24,6 +24,7 @@ set nomodeline " disable modeline vulnerability
 "" text encoding  ""
 """"""""""""""""""""
 set encoding=utf8
+set fileencoding=utf8
 
 " use 4 spaces for tabs
 set expandtab
