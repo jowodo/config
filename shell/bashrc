@@ -2,6 +2,8 @@
 #
 HISTSIZE=1000000000
 export PS1='[\u@\h \W]\$ '
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 #
 # IF NOT RUNNING INTERACTIVELY, DON'T DO ANYTHING
 [[ $- != *i* ]] && return
