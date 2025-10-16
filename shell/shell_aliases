@@ -3,6 +3,7 @@ alias e="evince $@ 2> /dev/null "
 alias z="zathura $@ 2> /dev/null"
 alias fire="firefox 2> /dev/null &"
 alias gp="gnuplot"
+alias vim='nvim' 
 alias visa="vim $XDG_CONFIG_HOME/shell/$(basename $SHELL)_aliases"
 alias visf="vim $XDG_CONFIG_HOME/shell/$(basename $SHELL)_funcitons"
 alias via="vim $XDG_CONFIG_HOME/shell/shell_aliases"
@@ -59,18 +60,7 @@ alias vv="vimiv"
 alias fet="figlet"
 alias fett="banner"
 
-
 #often used
 alias de="setxkbmap de"
 alias us="setxkbmap us"
 alias ta="tmux attach"
-
-#NOTES
-alias todo="vim ~/.todo.md"
-alias book="vim ~/.books.md"
-alias idee="vim ~/.ideas"
-alias links="vim ~/.links"
-alias learn="echo && date +'%T' && date --date='+25min' +'%T' && sleep 25m && vlc & "
-alias note="vim ~/.note"
-alias note="echo '\n' >> ~/.note && date +%Y.%m.%d-%H:%M:%S >> ~/.note && echo '===================' >> ~/.note && vim '+normal G' ~/.note"
-
