@@ -1,9 +1,6 @@
-#define colors
+#!/bin/bash 
 
-hostname=$(hostname)
-hostname=$HOSTNAME
-
-case $hostname in 
+case $HOSTNAME in 
 	hydrogen)
 	_color=$( tput setaf 1 ) 
 	;;
