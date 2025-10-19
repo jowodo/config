@@ -2,44 +2,44 @@
 
 case $HOSTNAME in 
 	hydrogen)
-	_color="\\[$( tput setaf 1 ) \\]"
+	_color="\\[$( tput setaf 1 )\\]"
 	;;
 	helium)
-	_color="\\[$( tput setaf 2 ) \\]"
+	_color="\\[$( tput setaf 2 )\\]"
 	;;
 	lithium)
-	_color="\\[$( tput setaf 3 ) \\]"
+	_color="\\[$( tput setaf 3 )\\]"
 	;;
 	berrylium)
-	_color="\\[$( tput setaf 5 ) \\]"
+	_color="\\[$( tput setaf 5 )\\]"
 	;;
 	bor)
-	_color="\\[$( tput setaf 6 ) \\]"
+	_color="\\[$( tput setaf 6 )\\]"
 	;;
 	carbon)
-	_color="\\[$( tput setaf 7 ) \\]"
+	_color="\\[$( tput setaf 7 )\\]"
 	;;
 	nitrogen)
-	_color="\\[$( tput setaf 8 ) \\]"
+	_color="\\[$( tput setaf 8 )\\]"
 	;;
 	oxygen)
-	_color="\\[$( tput setaf 1 ) \\]"
+	_color="\\[$( tput setaf 1 )\\]"
 	;;
 	fluor)
-	_color="\\[$( tput setab 2 ) \\]"
+	_color="\\[$( tput setab 2 )\\]"
 	;;
 	neon)
-	_color="\\[$( tput setab 3 ) \\]"
+	_color="\\[$( tput setab 3 )\\]"
 	;;
 	wlankabel*)
-	_color="\\[$( tput setab 4 ) \\]"
+	_color="\\[$( tput setab 4 )\\]"
 	;;
 	*)
 	_color=""
 	;;
 esac
 _reset="\\[$( tput sgr0 )\\]"
-_folder="\\[$( tput setaf 4 ) \\]"
+_folder="\\[$( tput setaf 4 )\\]"
 _bold="\\[$( tput bold)\\]"
 
 export PS1="${_bold}${_color}\u@\h${_reset}:${_bold}${_folder}\w${_reset}\$ "
