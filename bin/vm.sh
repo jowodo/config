@@ -120,6 +120,7 @@ elif [[ "$OS" == "rocky" || "$OS" == "r" ]]
 then 
     VIRTHD=$ISODIR/virthd/rocky.qcow2
     ISO=$ISODIR/Rocky-9.5-x86_64-minimal.iso
+    ISO=$ISODIR/Rocky-9.5-x86_64-boot.iso
 fi 
 #
 if [[ $NEWDRIVE || ! -f $VIRTHD ]]
