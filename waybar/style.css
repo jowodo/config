@@ -1,0 +1,22 @@
+/*@import url("/etc/xdg/waybar/style.css");*/
+@import url("file:///etc/xdg/waybar/style.css");
+
+
+#workspaces button {
+    background-color: #000;
+    color: #ffffff;
+}
+
+#workspaces button:hover {
+    background: #fff;
+    color: #000;
+}
+
+#workspaces button.active {
+    background-color: #4f2799;
+    color: #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
