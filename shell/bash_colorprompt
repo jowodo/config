@@ -26,13 +26,16 @@ case $HOSTNAME in
 	_color="\\[$( tput setaf 1 )\\]"
 	;;
 	fluor)
-	_color="\\[$( tput setab 2 )\\]"
+	_color="\\[$( tput setaf 7; tput setab 2 )\\]"
 	;;
 	neon)
-	_color="\\[$( tput setab 3 )\\]"
+	_color="\\[$( tput setaf 7; tput setab 3 )\\]"
 	;;
 	wlankabel*)
-	_color="\\[$( tput setab 4 )\\]"
+	_color="\\[$( tput setaf 7; tput setab 4 )\\]"
+	;;
+	bestoked*)
+	_color="\\[$( tput setaf 7; tput setab 4 )\\]"
 	;;
 	*)
 	_color=""
