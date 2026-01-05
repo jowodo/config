@@ -1,4 +1,6 @@
-@import url("/etc/xdg/waybar/style.css");
+/*@import url("/etc/xdg/waybar/style.css");*/
+@import url("file:///etc/xdg/waybar/style.css");
+
 
 #workspaces button {
     background-color: #000;
