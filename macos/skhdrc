@@ -102,7 +102,9 @@ shift + alt - f : yabai -m window --toggle native-fullscreen
 shift + alt - b : yabai -m window --toggle border
 
 # toggle window split type
-alt - e : yabai -m window --toggle split
+#alt - e : yabai -m window --toggle split
+alt - e : yabai -m config layout bsp
+shift + alt - e : yabai -m config layout float
 
 # float / unfloat window and center on screen
 fn - t : yabai -m window --toggle float;\
