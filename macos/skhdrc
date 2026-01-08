@@ -1,4 +1,11 @@
-# Also see: /usr/local/Cellar/skhd/0.3.5/share/skhd/examples/skhdrc
+# see also: /usr/local/Cellar/skhd/0.3.5/share/skhd/examples/skhdrc
+# see also: https://github.com/jackielii/skhd.zig#basic-hotkey-syntax
+
+# Function key navigation (for laptop keyboards)
+fn - j | down
+fn - k | up
+fn - h | left
+fn - l | right
 
 # open terminal
 alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2 --single-instance -d ~
