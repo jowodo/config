@@ -106,7 +106,7 @@ alt - w : yabai -m window --toggle zoom-fullscreen
 shift + alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window border
-shift + alt - b : yabai -m window --toggle border
+#shift + alt - b : yabai -m window --toggle border
 
 # toggle window split type
 #alt - e : yabai -m window --toggle split
@@ -118,7 +118,7 @@ fn - t : yabai -m window --toggle float;\
           yabai -m window --grid 8:8:1:1:6:5
 
 ######################################################################3########
-alt - b : open -a /Applications/Brave\ Browser.app
+#alt - b : open -a /Applications/Brave\ Browser.app
 #alt - f : open -a /Applications/Firefox.app
 alt - c : opan -a Calendar
 alt - m : open -a /Applications/Thunderbird.app
