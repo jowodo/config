@@ -3,7 +3,6 @@ alias e="evince $@ 2> /dev/null "
 alias z="zathura $@ 2> /dev/null"
 alias fire="firefox 2> /dev/null &"
 alias gp="gnuplot"
-alias vim='nvim' 
 alias visa="vim $XDG_CONFIG_HOME/shell/$(basename $SHELL)_aliases"
 alias visf="vim $XDG_CONFIG_HOME/shell/$(basename $SHELL)_funcitons"
 alias via="vim $XDG_CONFIG_HOME/shell/shell_aliases"
