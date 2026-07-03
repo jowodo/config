@@ -1,0 +1,8 @@
+[org.kde.konsole.desktop][Global Shortcuts]
+NewTab=
+NewWindow=
+_launch=Alt+Return; Meta+Return
+
+[org.kde.krunner.desktop][Global Shortcuts]
+RunClipboard=
+_launch=Meta+Space; Alt+Space
