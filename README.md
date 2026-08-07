@@ -17,7 +17,7 @@ ln -s $PWD/config ~/.config.git
 mv ~/.zproile ~/.zprofile.bkp
 ln -s ~/.config.git/shell/zshrc ~/.zshrc
 ln -s ~/.config.git/macos/skhdrc ~/.skhdrc
-ln -s ~/.config.git/macos/yabai ~/.yabairc
+ln -s ~/.config.git/macos/yabairc ~/.yabairc
 ```
 
 
