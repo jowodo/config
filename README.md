@@ -1,11 +1,21 @@
-Private Repo for my config files and scritps
-============================================
+# Private Repo for my config files and scritps
 
-USAGE:
-------
+## USAGE:
 
+### Linux:
 ```
-git clone git@github.com:pur80a/config.git ~/.config.git
+git clone git@github.com:jowodo/config.git 
+ln -s $PWD/config ~/.config.git
 mv ~/.bashrc ~/.bashrc.bkp
 ln -s ~/.config.git/shell/bashrc ~/.bashrc
+```
+
+### MacOS
+```
+git clone git@github.com:jowodo/config.git 
+ln -s $PWD/config ~/.config.git
+mv ~/.zproile ~/.zprofile.bkp
+ln -s ~/.config.git/shell/zshrc ~/.zshrc
+ln -s ~/.config.git/macos/skhdrc ~/.skhdrc
+ln -s ~/.config.git/macos/yabai ~/.yabairc
 ```
