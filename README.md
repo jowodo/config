@@ -10,7 +10,7 @@ mv ~/.bashrc ~/.bashrc.bkp
 ln -s ~/.config.git/shell/bashrc ~/.bashrc
 ```
 
-### MacOS
+### macOS
 ```
 git clone git@github.com:jowodo/config.git 
 ln -s $PWD/config ~/.config.git
@@ -19,3 +19,7 @@ ln -s ~/.config.git/shell/zshrc ~/.zshrc
 ln -s ~/.config.git/macos/skhdrc ~/.skhdrc
 ln -s ~/.config.git/macos/yabai ~/.yabairc
 ```
+
+
+---
+inspired by https://github.com/qaisjp/dotfiles
