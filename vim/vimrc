@@ -44,4 +44,8 @@ set colorcolumn=90
 
 set mouse=a " use mouse for scroll or window size
 
+" https://unix.stackexchange.com/questions/199203/why-does-vim-indent-pasted-code-incorrectly
+set paste
+
+
 hi StatusLine ctermbg=white ctermfg=black
