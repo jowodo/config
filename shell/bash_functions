@@ -89,3 +89,12 @@ function au {
         echo "ERROR: too many arguments"
     fi
 }
+
+
+timer () {
+    TIME=$1
+    MESSAGE=${2:-$TIME}
+    date
+    sleep $TIME && notify-send --urgency critical "TIMER" "$MESSAGE" &
+}
+
